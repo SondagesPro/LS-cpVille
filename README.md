@@ -1,5 +1,5 @@
 # Cope postal - Ville
-Allow to use a multi text question to get Postal code, twon name and Insse code.
+Allow to use a multi text question to get Postal code, town name and Insee code. User have an autocomplete helper to search the town (only french town actually).
 
 ## Installation
 
