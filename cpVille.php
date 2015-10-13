@@ -216,6 +216,22 @@ class cpVille extends PluginBase {
                 $oEvent->set('class',$oEvent->get('class')." saisieville saisieauto");
                 if(!$this->get('showCopyright',null,null,$this->settings['showCopyright']['default']))
                   $oEvent->set('answers',$oEvent->get('answers')."<p class='tip'><small>".$sTipCopyright."</small></p>");
+                if($oEvent->get('man_message'))
+                {
+                  // If we don't have other sub question : we must update the mandatory tip, used default from LS ...
+                  $aThisSubQ=array(
+                    $this->get('answerLibel',null,null,$this->settings['answerLibel']['default']),
+                    $this->get('answerCp',null,null,$this->settings['answerCp']['default']),
+                    $this->get('answerInsee',null,null,$this->settings['answerInsee']['default']),
+                    $this->get('answerNom',null,null,$this->settings['answerNom']['default']),
+                  );
+                  $oCriteria=new CDbCriteria();
+                  $oCriteria->addNotInCondition('title',$aThisSubQ);
+                  $oCriteria->compare('parent_qid',$iQid);
+                  $iCountOtherQuestion=Question::model()->count($oCriteria);
+                  if(!$iCountOtherQuestion)
+                    $oEvent->set('man_message',"<strong><br /><span class='errormandatory'>".gT('This question is mandatory').".  </span></strong>\n");
+                }
                 //$assetUrl=Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/');
                 Yii::app()->clientScript->registerScriptFile(Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/cpville.js'));
                 Yii::app()->clientScript->registerCssFile(Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/cpville.css'));
