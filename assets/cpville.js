@@ -7,7 +7,6 @@ function autoCpVille(qId,options){
   if(options.answerNom){optionLines.push("#question"+qId+" li[id$='X"+qId+options.answerNom+"']");optionShow.push(0);}
   
   $(optionLines.join(",")).each(function( index ) {
-      console.log(optionShow[index]);
     if(!optionShow[index])
         $(this).hide();
     $(this).find("input[type=text]").prop("readonly",true).addClass("readonly");
@@ -25,6 +24,7 @@ function autoCpVille(qId,options){
     var cache = {};
     $(answerLibel).autocomplete({
       minLength: 1,
+      position: { my : "left top", at: "left bottom", collision: "flipfit" },
       source: function(request, response) {
           $.ajax({
               url: options.jsonurl,
