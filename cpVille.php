@@ -212,7 +212,7 @@ class cpVille extends PluginBase {
                     'showInsee' => intval($this->get('showInsee',null,null,$this->settings['showInsee']['default'])),
                 );
 
-                  $sTipCopyright='Data : <a href="https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/">Base officielle des codes postaux</a> ©La Poste, <a href="http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm">Insee, Recensements de la population</a> ©Insee';
+                  $sTipCopyright='Data : <a href="https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/" target="_blank">Base officielle des codes postaux</a> ©La Poste, <a href="http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm" target="_blank">Insee, Recensements de la population</a> ©Insee';
                 $oEvent->set('class',$oEvent->get('class')." saisieville saisieauto");
                 if(!$this->get('showCopyright',null,null,$this->settings['showCopyright']['default']))
                   $oEvent->set('answers',$oEvent->get('answers')."<p class='tip'><small>".$sTipCopyright."</small></p>");

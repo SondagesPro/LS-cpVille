@@ -44,9 +44,11 @@ For user, some helper is done
 - Insee, Recensements de la population
   - Copyright © Insee <http://www.insee.fr>
   - Licence : Licence Ouverte / Open Licence <https://www.data.gouv.fr/fr/datasets/population/>
+  - Date : 15-10-04
 - Base officielle des codes postaux
   - Copyright © Le groupe La poste <http://legroupe.laposte.fr/>
   - Licence : Licence Ouverte / Open Licence <https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/>
+  - Date : 15-10-04
 - Adaptation ( Add population to "Base officielle des codes postaux", replace ST and STE)
   - Copyright © 2015 Denis Chenu <http://sondages.pro>
   - Licence : ODbL <http://opendatacommons.org/licenses/odbl/>
