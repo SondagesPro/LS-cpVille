@@ -16,13 +16,14 @@ Allow to use a multi text question to get Postal code, town name and Insee code.
 - If your hoster have very limited time for PHP scriot : this can break.
 
 ## Documentation
-In a multi text question type : et a Sub question with SaisieVille automatically launch a system to
+In a multi text question type : set a Sub question with SaisieVille code launch a system to
 - Allow user search for postal code or part of town name to fill the sub question
 - Fill Extra sub question with code CodePostal with the postal code
 - Fill Extra sub question with code Insee with the Insee code
 - Fill Extra sub question with code Nom with the town name
 
-Plugin settings allow admin user to 
+Each code can be completed by some cararcter : this allow multiple SaisieVille in same question. For example SaisieVilleA, SaisieVilleB and InseeA, InseeB filled by insee code.
+Plugin settings allow admin user to
 - Update the default sub question code and use awn code
 - Choose the maximum number of lines returned
 - Choose if extra sub question is shown or not
@@ -30,7 +31,7 @@ Plugin settings allow admin user to
 
 For user, some helper is done
 - Search on postal code if only number is entered
-- Search on multiple part : example villen asc
+- Search on multiple part : example `villen asc` for Villeneuve d'Ascq
 
 ## Home page & Copyright
 
