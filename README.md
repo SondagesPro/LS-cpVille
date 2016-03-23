@@ -8,12 +8,15 @@ Allow to use a multi text question to get Postal code, town name and Insee code.
 - Clone in plugins/cpVille directory
 
 ### Via ZIP dowload
-- Get the file and uncompress it
-- Move the files included to plugins/exportCompleteAnswers directory
+- Get the file at <http://extensions.sondages.pro/IMG/auto/cpVille.zip> and uncompress it
+- Move the files included to plugins/cpVille directory
 
 ## Setup and activation
 - During activation an new table is created and data is set up in this table.
 - If your hoster have very limited time for PHP scriot : this can break.
+- You can set yourself the DB : name must be lime_cpville_insee_cp (lime_ must be replaced by real prefix) and column insee, nom, cp, nomsimple.
+- You can add another column : then this can prefill specific subquestion.
+- If needed : you can update the database your way.
 
 ## Documentation
 In a multi text question type : set a Sub question with SaisieVille code launch a system to
@@ -37,8 +40,9 @@ For user, some helper is done
 
 ### Code
 - HomePage <http://extensions.sondages.pro/>
-- Copyright © 2015 Denis Chenu <http://sondages.pro>
 - Copyright © 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
+- copyright © 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
+- Copyright © 2015-2016 Denis Chenu <http://sondages.pro>
 - Licence : GNU General Public License <https://www.gnu.org/licenses/gpl-3.0.html>
 
 ### Data
