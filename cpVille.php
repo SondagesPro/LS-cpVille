@@ -4,16 +4,17 @@
  * Allow user to enter part of postal code or town and get the insee code in survey
  * Permet aux répondants de saisir une partie du code postal ou de la ville en choix, et récupérer le code postal
  * @author Denis Chenu <denis@sondages.pro>
- * @copyright 2015 Denis Chenu <http://sondages.pro>
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
+ * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
+ * @copyright 2015-2016 Denis Chenu <http://sondages.pro>
  * @license GPL v3
- * @version 1.0
+ * @version 1.1
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -22,7 +23,7 @@
  */
 class cpVille extends PluginBase {
     protected $storage = 'DbStorage';
-    
+
     static protected $description = 'Insee, code postaux et ville';
     static protected $name = 'cpVille';
 
@@ -212,7 +213,7 @@ class cpVille extends PluginBase {
                     'showInsee' => intval($this->get('showInsee',null,null,$this->settings['showInsee']['default'])),
                 );
 
-                  $sTipCopyright='Data : <a href="https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/" target="_blank">Base officielle des codes postaux</a> ©La Poste, <a href="http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm" target="_blank">Insee, Recensements de la population</a> ©Insee';
+                $sTipCopyright='Data : <a href="https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/" target="_blank">Base officielle des codes postaux</a> ©La Poste, <a href="http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm" target="_blank">Insee, Recensements de la population</a> ©Insee';
                 $oEvent->set('class',$oEvent->get('class')." saisieville saisieauto");
                 if(!$this->get('showCopyright',null,null,$this->settings['showCopyright']['default']))
                   $oEvent->set('answers',$oEvent->get('answers')."<p class='tip'><small>".$sTipCopyright."</small></p>");
@@ -255,7 +256,7 @@ class cpVille extends PluginBase {
                 throw new CHttpException(404,'Unknow action');
         }
     }
-    
+
     private function actionAuto()
     {
         $iSurveyId=Yii::app()->session['LEMsid'];
