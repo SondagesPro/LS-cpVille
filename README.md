@@ -39,7 +39,7 @@ For user, some helper is done
 ## Home page & Copyright
 
 ### Code
-- HomePage <http://extensions.sondages.pro/>
+- HomePage <http://extensions.sondages.pro/cpville>
 - Copyright © 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
 - copyright © 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
 - Copyright © 2015-2016 Denis Chenu <http://sondages.pro>
