@@ -4,11 +4,11 @@
  * Allow user to enter part of postal code or town and get the insee code in survey
  * Permet aux répondants de saisir une partie du code postal ou de la ville en choix, et récupérer le code postal
  * @author Denis Chenu <denis@sondages.pro>
+ * @copyright 2015 Denis Chenu <http://sondages.pro>
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
- * @copyright 2015-2016 Denis Chenu <http://sondages.pro>
  * @license GPL v3
- * @version 1.1
+ * @version 1.2
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -233,9 +233,9 @@ class cpVille extends PluginBase {
                   if(!$iCountOtherQuestion)
                     $oEvent->set('man_message',"<strong><br /><span class='errormandatory'>".gT('This question is mandatory').".  </span></strong>\n");
                 }
-                //$assetUrl=Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/');
-                Yii::app()->clientScript->registerScriptFile(Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/cpville.js'));
-                Yii::app()->clientScript->registerCssFile(Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/cpville.css'));
+                $assetUrl=Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/');
+                Yii::app()->clientScript->registerScriptFile($assetUrl.'/cpville.js');
+                Yii::app()->clientScript->registerCssFile($assetUrl.'/cpville.css');
                 $aOption['jsonurl']=$this->api->createUrl('plugins/direct', array('plugin' => get_class($this),'function' => 'auto'));
                 $sScript="autoCpVille({$oEvent->get('qid')},".ls_json_encode($aOption).");";
                 Yii::app()->clientScript->registerScript("autoCpVille{$iQid}",$sScript,CClientScript::POS_END);

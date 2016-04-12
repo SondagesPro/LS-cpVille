@@ -24,10 +24,13 @@ function autoCpVille(qId,options){
       if(options.answerCp){optionLines.push("#question"+qId+" li[id$='X"+qId+options.answerCp+endLibel+"']");optionShow.push(options.showCp);}
       if(options.answerInsee){optionLines.push("#question"+qId+" li[id$='X"+qId+options.answerInsee+endLibel+"']");optionShow.push(options.showInsee);}
       if(options.answerNom){optionLines.push("#question"+qId+" li[id$='X"+qId+options.answerNom+endLibel+"']");optionShow.push(0);}
-      $(optionLines.join(",")).each(function( index ) {
+      $.each(optionLines, function( index, value ) {
         if(!optionShow[index])
-            $(this).hide();
-        $(this).find("input[type=text]").prop("readonly",true).addClass("readonly");
+        {
+          $(value).hide();
+          $(value).addClass("hide").addClass("hidden");
+        }
+        $(value).find("input[type=text]").prop("readonly",true).addClass("readonly");
       });
       $(this).autocomplete({
         minLength: 1,
