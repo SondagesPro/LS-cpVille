@@ -21,7 +21,7 @@
  * GNU General Public License for more details.
  *
  */
-class cpVille extends PluginBase {
+class cpVille extends \ls\pluginmanager\PluginBase {
     protected $storage = 'DbStorage';
 
     static protected $description = 'Insee, code postaux et ville';
@@ -102,8 +102,7 @@ class cpVille extends PluginBase {
 
     private $csvFileName="insee_cp_ville.csv";
 
-    public function __construct(PluginManager $manager, $id) {
-        parent::__construct($manager, $id);
+    public function init() {
 
         $this->subscribe('beforeActivate');
 #        $this->subscribe('beforeSurveySettings');
