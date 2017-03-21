@@ -8,7 +8,7 @@
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 2.0
+ * @version 2.0.1
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -107,7 +107,7 @@ class cpVille extends \ls\pluginmanager\PluginBase {
     /**
      * @var the csv file version number to load
      */
-    private $csvFileVersion=0.2;
+    private $csvFileVersion=2;
 
     public function init() {
 
