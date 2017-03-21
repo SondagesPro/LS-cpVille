@@ -8,7 +8,7 @@
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 1.2
+ * @version 2.0
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -100,7 +100,14 @@ class cpVille extends \ls\pluginmanager\PluginBase {
         ),
     );
 
+    /**
+     * @var the csv file name to load
+     */
     private $csvFileName="insee_cp_ville.csv";
+    /**
+     * @var the csv file version number to load
+     */
+    private $csvFileVersion=0.2;
 
     public function init() {
 
@@ -112,6 +119,22 @@ class cpVille extends \ls\pluginmanager\PluginBase {
         $this->subscribe('newDirectRequest');
     }
 
+    /**
+     * @see parent:getPluginSettings
+     */
+    public function getPluginSettings($getValues=true)
+    {
+        if($getValues){
+            if(floatval($this->get('tableVersion',null,null,0)) < $this->csvFileVersion){
+                $sTableName=self::tableName('insee_cp');
+                App()->getDb()->createCommand()->dropTable($sTableName);
+                Yii::app()->setFlashMessage(gT("Table for plugin was deleted to be updated"));
+                $this->insertInseeCp();
+            }
+        }
+        return parent::getPluginSettings($getValues);
+
+    }
     public function beforeActivate()
     {
         $oEvent = $this->getEvent();
@@ -137,14 +160,13 @@ class cpVille extends \ls\pluginmanager\PluginBase {
                 'nomsimple'=>'text',
                 'region'=>'string(2)',
                 'departement'=>'string(2)',
-                'menages'=>'float',
                 'population'=>'float',
-                'menagesint'=>'int',
                 'populationint'=>'int',
             ));
             /* TODO : add index */
             $this->addDataToTable();
             $this->tableUpdated=true;
+            parent::saveSettings(array('tableVersion'=>$this->csvFileVersion));
         }
         if($this->tableUpdated)
         {
@@ -174,10 +196,8 @@ class cpVille extends \ls\pluginmanager\PluginBase {
                     'nomsimple'     => $aData[3],
                     'region'        => $aData[4],
                     'departement'   => $aData[5],
-                    'menages'       => $aData[6],
-                    'population'    => $aData[7],
-                    'menagesint'    => $aData[8],
-                    'populationint' => $aData[9]
+                    'population'    => $aData[6],
+                    'populationint' => $aData[7]
                 )
                 );
                 if(!$insertResult)
