@@ -8,7 +8,7 @@
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 2.0.1
+ * @version 2.1.1
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -152,7 +152,6 @@ class cpVille extends \ls\pluginmanager\PluginBase {
                 return;
             }
             $tableName=$this->tableName('insee_cp');
-            // 2.06 150729
             $this->api->createTable($this, 'insee_cp', array(
                 'insee'=>'string(5)',
                 'nom'=>'text',
@@ -284,6 +283,18 @@ class cpVille extends \ls\pluginmanager\PluginBase {
         $sParametre=strtr($sParametre,array(
           "/"=>" SUR ",
         ));
+        /* get the collation according to db */
+        switch (App()->getDb()->charset) {
+            case 'utf8':
+                $collate = " COLLATE utf8_general_ci";
+                break;
+            case 'utf8mb4':
+                $collate = " COLLATE utf8mb4_general_ci";
+                break;
+            default:
+                $collate = "";
+                break;
+        }
         $iLimit=(int)$this->get('limitliste');
         $iLimit=($iLimit>0) ? $iLimit : 10;
         $sOrderBy=$this->get('orderby');
@@ -317,7 +328,7 @@ class cpVille extends \ls\pluginmanager\PluginBase {
                     ->select('*')
                     ->from(self::tableName('insee_cp'))
                     ->where(
-                        Yii::app()->db->quoteColumnName('nomsimple')."  COLLATE utf8_general_ci LIKE :nomsimple OR ".Yii::app()->db->quoteColumnName('nomsimple')." COLLATE utf8_general_ci LIKE :nomsimplespace OR ".Yii::app()->db->quoteColumnName('cp')." LIKE :cp",
+                        Yii::app()->db->quoteColumnName('nomsimple')." {$collate} LIKE :nomsimple OR ".Yii::app()->db->quoteColumnName('nomsimple')." {$collate} LIKE :nomsimplespace OR ".Yii::app()->db->quoteColumnName('cp')." LIKE :cp",
                         array(':nomsimple'=>"{$sParametre}%",':nomsimplespace'=>"% {$sParametre}%",':cp'=>"{$sParametre}%"))
                     ->order($sOrderBy)
                     ->limit($iLimit)
@@ -340,7 +351,7 @@ class cpVille extends \ls\pluginmanager\PluginBase {
                         {
                           if(ctype_digit($sParametre))
                           {
-                            $oTowns->andWhere("{$dbCpColumn} LIKE :cpstart{$count} OR {$dbColumn} COLLATE utf8_general_ci LIKE :start{$count} OR {$dbColumn} COLLATE utf8_general_ci LIKE :space{$count}");
+                            $oTowns->andWhere("{$dbCpColumn} LIKE :cpstart{$count} OR {$dbColumn} {$collate} LIKE :start{$count} OR {$dbColumn} {$collate} LIKE :space{$count}");
                             $aParams[":cpstart{$count}"]="{$sParametre}%";
                             $aParams[":start{$count}"]="{$sParametre}%";
                             $aParams[":space{$count}"]="% {$sParametre}%";
@@ -348,7 +359,7 @@ class cpVille extends \ls\pluginmanager\PluginBase {
                           else
                           {
                             $sParametre = addcslashes(self::replaceSomeString($sParametre), '%_');
-                            $oTowns->andWhere("{$dbColumn} COLLATE utf8_general_ci LIKE :start{$count} OR {$dbColumn} COLLATE utf8_general_ci LIKE :space{$count}");
+                            $oTowns->andWhere("{$dbColumn} {$collate} LIKE :start{$count} OR {$dbColumn} {$collate} LIKE :space{$count}");
                             $aParams[":start{$count}"]="{$sParametre}%";
                             $aParams[":space{$count}"]="% {$sParametre}%";
                           }

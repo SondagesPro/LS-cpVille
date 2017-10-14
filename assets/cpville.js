@@ -1,8 +1,8 @@
 function autoCpVille(qId,options){
   var answerLibels=$("#question"+qId+" input[name*='X"+qId+options.answerLibel+"']");
+  console.log(answerLibels.length);
   if(answerLibels.length>=1)
   {
-    $(answerLibels).addClass('libelle');
     $(answerLibels).keypress(function(e) {
          var code = e.keyCode || e.which;
           if (code == 9) {
@@ -15,15 +15,25 @@ function autoCpVille(qId,options){
     $(answerLibels).each(function(){
       // Find final part
       var thisid=$(this).attr("id");
+      console.log(thisid);
       var n=thisid.indexOf('X'+qId+options.answerLibel);
       var endLibel=$(this).attr("id").substring($(this).attr("id").indexOf(baseLibel)+baseLibelLength);
       // Set the options for each lines
       var optionLines=[];
       var optionShow=[];
 
-      if(options.answerCp){optionLines.push("#question"+qId+" li[id$='X"+qId+options.answerCp+endLibel+"']");optionShow.push(options.showCp);}
-      if(options.answerInsee){optionLines.push("#question"+qId+" li[id$='X"+qId+options.answerInsee+endLibel+"']");optionShow.push(options.showInsee);}
-      if(options.answerNom){optionLines.push("#question"+qId+" li[id$='X"+qId+options.answerNom+endLibel+"']");optionShow.push(0);}
+      if(options.answerCp){
+        optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+options.answerCp+endLibel+"']");
+        optionShow.push(options.showCp);
+      }
+      if(options.answerInsee){
+        optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+options.answerInsee+endLibel+"']");
+        optionShow.push(options.showInsee);
+      }
+      if(options.answerNom){
+        optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+options.answerNom+endLibel+"']");
+        optionShow.push(0);
+      }
       $.each(optionLines, function( index, value ) {
         if(!optionShow[index])
         {
@@ -32,8 +42,10 @@ function autoCpVille(qId,options){
         }
         $(value).find("input[type=text]").prop("readonly",true).addClass("readonly");
       });
+      var parent=$(this).parent();
       $(this).autocomplete({
         minLength: 1,
+        appendTo: parent,
         position: { my : "left top", at: "left bottom", collision: "flipfit" },
         source: function(request, response) {
             $.ajax({
@@ -46,6 +58,12 @@ function autoCpVille(qId,options){
                     response(data);
                 }
             });
+        },
+        search: function (event, ui) {
+            $(this).addClass('autocomplete-search');
+        },
+        open: function (event, ui) {
+            $(this).removeClass('autocomplete-search');
         },
         change: function (event, ui) {
           if(!ui.item){
