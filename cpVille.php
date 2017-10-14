@@ -248,8 +248,9 @@ class cpVille extends \ls\pluginmanager\PluginBase {
                   $oCriteria->addNotInCondition('title',$aThisSubQ);
                   $oCriteria->compare('parent_qid',$iQid);
                   $iCountOtherQuestion=Question::model()->count($oCriteria);
-                  if(!$iCountOtherQuestion)
+                  if(!$iCountOtherQuestion) {
                     $oEvent->set('man_message',"<strong><br /><span class='errormandatory'>".gT('This question is mandatory').".  </span></strong>\n");
+                  }
                 }
                 $assetUrl=Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/');
                 Yii::app()->clientScript->registerScriptFile($assetUrl.'/cpville.js');

@@ -1,6 +1,5 @@
 function autoCpVille(qId,options){
   var answerLibels=$("#question"+qId+" input[name*='X"+qId+options.answerLibel+"']");
-  console.log(answerLibels.length);
   if(answerLibels.length>=1)
   {
     $(answerLibels).keypress(function(e) {
@@ -15,7 +14,6 @@ function autoCpVille(qId,options){
     $(answerLibels).each(function(){
       // Find final part
       var thisid=$(this).attr("id");
-      console.log(thisid);
       var n=thisid.indexOf('X'+qId+options.answerLibel);
       var endLibel=$(this).attr("id").substring($(this).attr("id").indexOf(baseLibel)+baseLibelLength);
       // Set the options for each lines
@@ -43,10 +41,15 @@ function autoCpVille(qId,options){
         $(value).find("input[type=text]").prop("readonly",true).addClass("readonly");
       });
       var parent=$(this).parent();
+      $(parent).css("position","relative");
       $(this).autocomplete({
         minLength: 1,
         appendTo: parent,
-        position: { my : "left top", at: "left bottom", collision: "flipfit" },
+        position: {
+          my : "left top",
+          at: "left bottom",
+          collision: "flipfit"
+        },
         source: function(request, response) {
             $.ajax({
                 url: options.jsonurl,
