@@ -13,20 +13,20 @@ Allow to use a multi text question to get Postal code, town name and Insee code.
 
 ## Setup and activation
 - During activation an new table is created and data is set up in this table.
-- If your hoster have very limited time for PHP scriot : this can break.
+- If your hoster have very limited time for PHP script : you can send yourself the DB
 - You can set yourself the DB : name must be lime_cpville_insee_cp (lime_ must be replaced by real prefix) and column insee, nom, cp, nomsimple.
-- You can add another column : then this can prefill specific subquestion.
+- You can add another column : this can prefill specific subquestion with same code.
 - If needed : you can update the database your way.
 
 ## Documentation
-In a multi text question type : set a Sub question with SaisieVille code launch a system to
+In a multi text question type : set a Sub question with SaisieVille automatically launch a system to
 - Allow user search for postal code or part of town name to fill the sub question
 - Fill Extra sub question with code CodePostal with the postal code
 - Fill Extra sub question with code Insee with the Insee code
 - Fill Extra sub question with code Nom with the town name
+- Fill Extra sub question with code as column name od the DB (you can test with region or departement)
 
-Each code can be completed by some cararcter : this allow multiple SaisieVille in same question. For example SaisieVilleA, SaisieVilleB and InseeA, InseeB filled by insee code.
-Plugin settings allow admin user to
+Plugin settings allow admin user to 
 - Update the default sub question code and use awn code
 - Choose the maximum number of lines returned
 - Choose if extra sub question is shown or not
@@ -34,15 +34,15 @@ Plugin settings allow admin user to
 
 For user, some helper is done
 - Search on postal code if only number is entered
-- Search on multiple part : example `villen asc` for Villeneuve d'Ascq
+- Search on multiple part : example villen asc
 
 ## Home page & Copyright
 
 ### Code
-- HomePage <http://extensions.sondages.pro/cpville>
+- HomePage <http://extensions.sondages.pro/>
+- Copyright © 2015-2018 Denis Chenu <http://sondages.pro>
 - Copyright © 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
-- copyright © 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
-- Copyright © 2015-2016 Denis Chenu <http://sondages.pro>
+- Copyright © 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
 - Licence : GNU General Public License <https://www.gnu.org/licenses/gpl-3.0.html>
 
 ### Data

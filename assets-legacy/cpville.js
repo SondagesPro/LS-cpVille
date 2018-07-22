@@ -36,40 +36,63 @@ function autoCpVille(qId,options){
         if(!optionShow[index])
         {
           $(value).hide();
-          $(value).addClass("hidden");
+          $(value).addClass("hide").addClass("hidden");
         }
         $(value).find("input[type=text]").prop("readonly",true).addClass("readonly");
       });
       var parent=$(this).parent();
       $(parent).css("position","relative");
       $(this).autocomplete({
-            serviceUrl : options.jsonurl,
-            dataType: "json",
-            paramName: 'term',
-            minChars: 1,
-            autoSelectFirst:true,
-            transformResult: function(responses) {
-                return {
-                    suggestions: $.map(responses, function(ville) {
-                        return { value: ville.label, data: ville };
-                    })
-                };
-            },
-            onSearchStart: function(query) {
-                $( this ).prop("readonly",true);
-            },
-            onSearchComplete : function(query, suggestions) {
-                $( this ).prop("readonly",false);
-            },
-            onSelect : function(suggestion) {
-                if(suggestion.data) {
-                    $.each(suggestion.data, function(key, value) {
-                        $("input[type=text][name$='X"+qId+key+endLibel+"']").val(value).trigger('keyup');
-                    });
+        minLength: 1,
+        appendTo: parent,
+        position: {
+          my : "left top",
+          at: "left bottom",
+          collision: "flipfit"
+        },
+        source: function(request, response) {
+            $.ajax({
+                url: options.jsonurl,
+                dataType: "json",
+                data: {
+                    term : request.term
+                },
+                success: function(data) {
+                    response(data);
                 }
-            }
+            });
+        },
+        search: function (event, ui) {
+            $(this).addClass('autocomplete-search');
+        },
+        open: function (event, ui) {
+            $(this).removeClass('autocomplete-search');
+        },
+        change: function (event, ui) {
+          if(!ui.item){
+              $(this).val("");
+              $(optionLines.join(",")).each(function( index ) {
+                $(this).find("input[type=text]").val("").trigger('keyup').trigger('blur');
+              });
+          }
+        },
+        select: function( event, ui ) {
+            $.each(ui.item, function(key, value) {
+              $("input[type=text][name$='X"+qId+key+endLibel+"']").val(value).trigger('keyup').trigger('blur');
+            });
+        },
+        focus: function (event, ui) {
+          return false;
+        },
+        blur: function (event, ui) {
+          $(this).trigger("change");
+          return false;
+        }
       });
     });
+
+
+
   }else{
     $(optionLines.join(",")).each(function( index ) {
       $(this).show();

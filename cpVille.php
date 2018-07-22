@@ -4,11 +4,11 @@
  * Allow user to enter part of postal code or town and get the insee code in survey
  * Permet aux répondants de saisir une partie du code postal ou de la ville en choix, et récupérer le code postal
  * @author Denis Chenu <denis@sondages.pro>
- * @copyright 2015 Denis Chenu <http://sondages.pro>
+ * @copyright 2015-2018 Denis Chenu <http://sondages.pro>
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 2.1.1
+ * @version 3.0.0
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
  * GNU General Public License for more details.
  *
  */
-class cpVille extends \ls\pluginmanager\PluginBase {
+class cpVille extends PluginBase {
     protected $storage = 'DbStorage';
 
     static protected $description = 'Insee, code postaux et ville';
@@ -252,7 +252,11 @@ class cpVille extends \ls\pluginmanager\PluginBase {
                     $oEvent->set('man_message',"<strong><br /><span class='errormandatory'>".gT('This question is mandatory').".  </span></strong>\n");
                   }
                 }
-                $assetUrl=Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/');
+                $assetUrl=Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets-legacy/');
+                if(array_key_exists('devbridge-autocomplete',Yii::app()->getClientScript()->packages)) {
+                    Yii::app()->getClientScript()->registerPackage('devbridge-autocomplete');
+                    $assetUrl=Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets/');
+                }
                 Yii::app()->clientScript->registerScriptFile($assetUrl.'/cpville.js');
                 Yii::app()->clientScript->registerCssFile($assetUrl.'/cpville.css');
                 $aOption['jsonurl']=$this->api->createUrl('plugins/direct', array('plugin' => get_class($this),'function' => 'auto'));
@@ -266,34 +270,42 @@ class cpVille extends \ls\pluginmanager\PluginBase {
     public function newDirectRequest()
     {
         $oEvent = $this->event;
-        $sAction=$oEvent->get('function');
-        if ($oEvent->get('target') == "cpVille")
-        {
-            if($sAction=='auto')
-                $this->actionAuto();
-            else
-                throw new CHttpException(404,'Unknow action');
+        if ($oEvent->get('target') == "cpVille") {
+            $this->actionAuto();
         }
     }
 
     private function actionAuto()
     {
         $iSurveyId=Yii::app()->session['LEMsid'];
+        if(!$iSurveyId) {
+            $this->displayJson(null);
+        }
         $sParametre=trim(Yii::app()->request->getParam('term'));
         // Some update directly
         $sParametre=strtr($sParametre,array(
           "/"=>" SUR ",
         ));
         /* get the collation according to db */
-        switch (App()->getDb()->charset) {
-            case 'utf8':
-                $collate = " COLLATE utf8_general_ci";
-                break;
-            case 'utf8mb4':
+        $collate = "";
+        switch (Yii::app()->db->driverName){
+            case 'mysql':
+            case 'mysqli':
                 $collate = " COLLATE utf8mb4_general_ci";
+                if(Yii::app()->getConfig('DBVersion') < 257) {
+                    $collate = " COLLATE utf8_general_ci";
+                }
+                break;
+            case 'pgsql':
+                // Not tested
+                break;
+            case 'sqlsrv':
+            case 'dblib':
+            case 'mssql':
+                // Not tested
                 break;
             default:
-                $collate = "";
+                // Unknow DB
                 break;
         }
         $iLimit=(int)$this->get('limitliste');
@@ -419,6 +431,7 @@ class cpVille extends \ls\pluginmanager\PluginBase {
             }
             $this->displayJson($aReturnArray);
         }
+        $this->displayJson(null);
     }
 
     private function displayJson($aArray)
