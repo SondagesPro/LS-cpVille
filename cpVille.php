@@ -8,7 +8,7 @@
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 3.2.1
+ * @version 3.2.2
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -339,7 +339,7 @@ class cpVille extends PluginBase {
                     $man_message = "<strong><br /><span class='errormandatory'>".gT('This question is mandatory').".  </span></strong>\n";
                     if(version_compare(App()->getConfig('versionnumber'),3,">=") && version_compare(App()->getConfig('versionnumber'),4,"<") ) {
                         $man_message = Yii::app()->getController()->renderPartial('//survey/questions/question_help/mandatory_tip', array(
-                                'man_message'=>gT('This question is mandatory'),
+                                'sMandatoryText'=>gT('This question is mandatory'),
                         ), true);
                     }
                     if(version_compare(App()->getConfig('versionnumber'),4,">=") ) {
