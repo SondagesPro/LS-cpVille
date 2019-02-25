@@ -12,6 +12,7 @@ function autoCpVille(qId,options){
     var baseLibel='X'+qId+options.answerLibel;
     var baseLibelLength=baseLibel.length;
     $(answerLibels).each(function(){
+      $(this).attr('placeholder',options.placeholder);
       // Find final part
       var thisid=$(this).attr("id");
       var n=thisid.indexOf('X'+qId+options.answerLibel);

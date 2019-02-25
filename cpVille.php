@@ -8,7 +8,7 @@
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 3.1.2
+ * @version 3.2.0
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -315,6 +315,7 @@ class cpVille extends PluginBase {
                     'answerNom' => $this->get('answerNom',null,null,$this->settings['answerNom']['default']),
                     'showCp' => intval($this->get('showCp',null,null,$this->settings['showCp']['default'])),
                     'showInsee' => intval($this->get('showInsee',null,null,$this->settings['showInsee']['default'])),
+                    'placeholder' => version_compare(App()->getConfig('versionnumber'),3,">=") ? $this->_translate("Enter some character or first caracter of your zipcode.") : "",
                 );
 
                 $sTipCopyright='Data : <a href="https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/" target="_blank">Base officielle des codes postaux</a> ©La Poste, <a href="http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm" target="_blank">Insee, Recensements de la population</a> ©Insee';
@@ -335,7 +336,20 @@ class cpVille extends PluginBase {
                   $oCriteria->compare('parent_qid',$iQid);
                   $iCountOtherQuestion=Question::model()->count($oCriteria);
                   if(!$iCountOtherQuestion) {
-                    $oEvent->set('man_message',"<strong><br /><span class='errormandatory'>".gT('This question is mandatory').".  </span></strong>\n");
+                    $man_message = "<strong><br /><span class='errormandatory'>".gT('This question is mandatory').".  </span></strong>\n";
+                    if(version_compare(App()->getConfig('versionnumber'),3,">=") && version_compare(App()->getConfig('versionnumber'),4,"<") ) {
+                        $man_message = Yii::app()->getController()->renderPartial('//survey/questions/question_help/mandatory_tip', array(
+                                'man_message'=>$LEM->gT('This question is mandatory'),
+                        ), true);
+                    }
+                    if(version_compare(App()->getConfig('versionnumber'),4,">=") ) {
+                      $man_message = App()->twigRenderer->renderPartial('/survey/questions/question_help/mandatory_tip.twig', array(
+                        'sMandatoryText'=>$LEM->gT('This question is mandatory'),
+                        'part' => 'initial',
+                        'qInfo' => array(),
+                      ));
+                    } 
+                    $oEvent->set('man_message',$man_message);
                   }
                 }
                 $assetUrl=Yii::app()->assetManager->publish(dirname(__FILE__) . '/assets-legacy/');
@@ -367,6 +381,7 @@ class cpVille extends PluginBase {
         if(!$iSurveyId) {
             $this->displayJson(null);
         }
+        Yii::app()->setLanguage(Yii::app()->session['LEMlang']);
         $sParametre=trim(Yii::app()->request->getParam('term'));
         // Some update directly
         $sParametre=strtr($sParametre,array(
@@ -508,7 +523,7 @@ class cpVille extends PluginBase {
             if(!count($aReturnArray))
             {
                 $aReturnArray[]=array(
-                    'label'=>"-",
+                    'label'=>version_compare(App()->getConfig('versionnumber'),3,">=") ? $this->_translate("No city with this name, please check it.") : "",
                     'value'=>"",
                     $this->get('answerCp',null,null,$this->settings['answerCp']['default'])=>"",
                     $this->get('answerInsee',null,null,$this->settings['answerInsee']['default'])=>"",
@@ -544,5 +559,14 @@ class cpVille extends PluginBase {
           return $aReplace[strtoupper($string)];
         }
         return $string;
+    }
+
+    private function _translate($sToTranslate, $sEscapeMode = 'unescaped', $sLanguage = null)
+    {
+      if(method_exists($this,"gT"))
+      {
+          return $this->gT($sToTranslate, $sEscapeMode, $sLanguage);
+      }
+      return $sToTranslate;
     }
 }

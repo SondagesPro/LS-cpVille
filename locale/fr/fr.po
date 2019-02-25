@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cpVille\n"
+"POT-Creation-Date: 2019-02-25 19:30+0100\n"
+"PO-Revision-Date: 2019-02-25 19:31+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: _translate\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: locale\n"
+"X-Poedit-SearchPathExcluded-1: exemple\n"
+"X-Poedit-SearchPathExcluded-2: assets\n"
+"X-Poedit-SearchPathExcluded-3: assets-legacy\n"
+
+#: cpVille.php:318
+msgid "Enter some character or first caracter of your zipcode."
+msgstr "Entrer quelques caractères ou le début de votre code postal."
+
+#: cpVille.php:525
+msgid "No city with this name, please check it."
+msgstr "Aucune ville avec ce nom, veuillez le vérifier."
