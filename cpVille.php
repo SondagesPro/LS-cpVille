@@ -4,11 +4,11 @@
  * Allow user to enter part of postal code or town and get the insee code in survey
  * Permet aux répondants de saisir une partie du code postal ou de la ville en choix, et récupérer le code postal
  * @author Denis Chenu <denis@sondages.pro>
- * @copyright 2015-2018 Denis Chenu <http://sondages.pro>
+ * @copyright 2015-2019 Denis Chenu <http://sondages.pro>
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 3.0.0
+ * @version 3.1.0
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,12 @@ class cpVille extends PluginBase {
     static protected $name = 'cpVille';
 
     private $tableUpdated=false;
+
     protected $settings = array(
+        'versionInfo' => array(
+            'type'=>'info',
+            'content'=>'<div class="alert alert-info">Data version is %s. Database version is %s</div>',
+        ),
         /* Default auto */
         'answerLibel' => array(
             'type' => 'string',
@@ -104,10 +109,16 @@ class cpVille extends PluginBase {
      * @var the csv file name to load
      */
     private $csvFileName="insee_cp_ville.csv";
+
     /**
      * @var the csv file version number to load
      */
     private $csvFileVersion=2;
+
+    /**
+     * @var the database version
+     */
+    private static $dbVersion=1;
 
     public function init() {
 
@@ -129,19 +140,54 @@ class cpVille extends PluginBase {
                 $sTableName=self::tableName('insee_cp');
                 App()->getDb()->createCommand()->dropTable($sTableName);
                 Yii::app()->setFlashMessage(gT("Table for plugin was deleted to be updated"));
-                $this->insertInseeCp();
+                $this->_insertInseeCp();
             }
+            $this->_checkAndUpdateTable();
         }
+        $this->settings['versionInfo']['content'] = sprintf($this->settings['versionInfo']['content'],$this->get('tableVersion',null,null,0),$this->get('dbVersion',null,null,0));
         return parent::getPluginSettings($getValues);
 
     }
     public function beforeActivate()
     {
         $oEvent = $this->getEvent();
-        $this->insertInseeCp();
+        $this->getEvent()->set('success', $this->_insertInseeCp());
     }
 
-    private function insertInseeCp()
+    private function _checkAndUpdateTable() {
+      $pluginId = $this->getId();
+      if($this->get('dbVersion',null,null,0) < 1) {
+        try {
+          $oTransaction = Yii::app()->getDb()->beginTransaction();
+          $tableName=$this->tableName('insee_cp');
+          Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'insee', 'string(5) NOT NULL');
+          Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'nom', 'text NOT NULL');
+          Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'cp', 'string(5) NOT NULL');
+          Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'nomsimple', 'string(50) NOT NULL');
+          Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'region', 'string(2) NOT NULL');
+          Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'departement', 'string(3) NOT NULL');
+          Yii::app()->getDb()->createCommand()->addPrimaryKey('inseecp_cp_insee',$tableName,'insee,cp');
+          Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple',$tableName,'nomsimple');
+          Yii::app()->getDb()->createCommand()->createIndex('inseecp_departement',$tableName,'departement');
+          Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_departement',$tableName,'cp,departement');
+          Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple_departement',$tableName,'nomsimple,departement');
+          Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_nomsimple',$tableName,'cp,nomsimple');
+          $oTransaction->commit();
+        } catch (Exception $e) {
+          $oTransaction->rollback();
+          Yii::app()->setFlashMessage("An error happen during update : <div>".$e->getMessage()."</div>",'warning');
+          return;
+        }
+        $this->set("dbVersion",1);
+        Yii::app()->setFlashMessage("dbVersion updated to 1",'success');
+      }
+
+    }
+    /**
+     * create and insert database
+     * @return boolean : success
+     */
+    private function _insertInseeCp()
     {
         if (!$this->api->tableExists($this, 'insee_cp'))
         {
@@ -149,23 +195,29 @@ class cpVille extends PluginBase {
             {
                 $this->getEvent()->set('success', false);
                 $this->getEvent()->set('message', 'Can not read file :'.dirname(__FILE__) . "/" . $this->csvFileName.'.');
-                return;
+                return false;
             }
             $tableName=$this->tableName('insee_cp');
             $this->api->createTable($this, 'insee_cp', array(
-                'insee'=>'string(5)',
-                'nom'=>'text',
-                'cp'=>'string(5)',
-                'nomsimple'=>'text',
-                'region'=>'string(2)',
-                'departement'=>'string(2)',
+                'insee'=>'string(5) NOT NULL',
+                'nom'=>'text NOT NULL',
+                'cp'=>'string(5) NOT NULL',
+                'nomsimple'=>'string(50)',
+                'region'=>'string(2) NOT NULL',
+                'departement'=>'string(3) NOT NULL',
                 'population'=>'float',
                 'populationint'=>'int',
             ));
             /* TODO : add index */
-            $this->addDataToTable();
+            if(!$this->_addDataToTable()) {
+              App()->getDb()->createCommand()->dropTable($tableName);
+              return false;
+            }
             $this->tableUpdated=true;
-            parent::saveSettings(array('tableVersion'=>$this->csvFileVersion));
+            parent::saveSettings(array(
+                'tableVersion'=>$this->csvFileVersion,
+                'dbVersion'=>self::dbVersion
+            ));
         }
         if($this->tableUpdated)
         {
@@ -174,7 +226,12 @@ class cpVille extends PluginBase {
             Yii::app()->setFlashMessage(gT("Table for plugin was created and updated"));
         }
     }
-    private function addDataToTable()
+
+    /**
+     * Add data to table
+     * @return boolean : success
+     */
+    private function _addDataToTable()
     {
       $fHandle = fopen(dirname(__FILE__) . "/" . $this->csvFileName ,'r');
       $lineNum=0;
@@ -186,33 +243,38 @@ class cpVille extends PluginBase {
           {
             if(strlen($aData[0])<=5)
             {
-              $insertResult=Yii::app()->db->createCommand()
-                ->insert($tableName,
-                array(
-                    'insee'         => str_pad($aData[0], 5, '0', STR_PAD_LEFT),
-                    'nom'           => $aData[1],
-                    'cp'            => str_pad($aData[2], 5, '0', STR_PAD_LEFT),
-                    'nomsimple'     => $aData[3],
-                    'region'        => $aData[4],
-                    'departement'   => $aData[5],
-                    'population'    => $aData[6],
-                    'populationint' => $aData[7]
-                )
-                );
-                if(!$insertResult)
-                {
-                    Yii::app()->setFlashMessage("Error happen update table for insee {$aData[0]} at line {$lineNum}");
+              try {
+                $insertResult=Yii::app()->db->createCommand()
+                  ->insert($tableName,
+                      array(
+                          'insee'         => str_pad($aData[0], 5, '0', STR_PAD_LEFT),
+                          'nom'           => $aData[1],
+                          'cp'            => str_pad($aData[2], 5, '0', STR_PAD_LEFT),
+                          'nomsimple'     => $aData[3],
+                          'region'        => $aData[4],
+                          'departement'   => $aData[5],
+                          'population'    => $aData[7],
+                          'populationint' => $aData[9]
+                      )
+                  );
+                } catch (Exception $ex) {
+                  Yii::app()->setFlashMessage("Error happen update table for insee {$aData[0]} at line {$lineNum} with error <div>".$ex->getMessage()."</div> and data : <pre>".print_r($aData,1)."</pre>",'error');
+                  fclose($fHandle);
+                  return false;
                 }
             }
             else
             {
+              fclose($fHandle);
               Yii::app()->setFlashMessage("Invalid line for insee {$aData[0]} at line {$lineNum}");
+              return false;
             }
           }
       }
-      //Yii::app()->setFlashMessage("{$lineNum} in {$this->csvFileName}",'success');
       fclose($fHandle);
+      return true;
     }
+
     public function beforeQuestionRender()
     {
         $oEvent=$this->getEvent();
