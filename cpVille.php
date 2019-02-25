@@ -118,7 +118,7 @@ class cpVille extends PluginBase {
     /**
      * @var the database version
      */
-    private static $dbVersion=1;
+    private static $dbVersion=2;
 
     public function init() {
 
@@ -156,17 +156,26 @@ class cpVille extends PluginBase {
 
     private function _checkAndUpdateTable() {
       $pluginId = $this->getId();
-      if($this->get('dbVersion',null,null,0) < 1) {
+      if($this->get('dbVersion',null,null,0) < 2) {
         try {
           $oTransaction = Yii::app()->getDb()->beginTransaction();
           $tableName=$this->tableName('insee_cp');
+          if(!empty( $this->api->getTable($this,'insee_cp')->getTableSchema()->primaryKey)) {
+            Yii::app()->getDb()->createCommand()->dropPrimaryKey('inseecp_cp_insee',$tableName);
+            Yii::app()->getDb()->createCommand()->dropIndex('inseecp_nomsimple',$tableName);
+            Yii::app()->getDb()->createCommand()->dropIndex('inseecp_departement',$tableName);
+            Yii::app()->getDb()->createCommand()->dropIndex('inseecp_cp_departement',$tableName);
+            Yii::app()->getDb()->createCommand()->dropIndex('inseecp_nomsimple_departement',$tableName);
+            Yii::app()->getDb()->createCommand()->dropIndex('inseecp_cp_nomsimple',$tableName);
+          }
+          Yii::app()->getDb()->createCommand()->addColumn($tableName, 'id', 'pk');
           Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'insee', 'string(5) NOT NULL');
           Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'nom', 'text NOT NULL');
           Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'cp', 'string(5) NOT NULL');
           Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'nomsimple', 'string(50) NOT NULL');
           Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'region', 'string(2) NOT NULL');
           Yii::app()->getDb()->createCommand()->alterColumn($tableName, 'departement', 'string(3) NOT NULL');
-          Yii::app()->getDb()->createCommand()->addPrimaryKey('inseecp_cp_insee',$tableName,'insee,cp');
+          Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_insee',$tableName,'insee,cp');
           Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple',$tableName,'nomsimple');
           Yii::app()->getDb()->createCommand()->createIndex('inseecp_departement',$tableName,'departement');
           Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_departement',$tableName,'cp,departement');
@@ -178,8 +187,8 @@ class cpVille extends PluginBase {
           Yii::app()->setFlashMessage("An error happen during update : <div>".$e->getMessage()."</div>",'warning');
           return;
         }
-        $this->set("dbVersion",1);
-        Yii::app()->setFlashMessage("dbVersion updated to 1",'success');
+        $this->set("dbVersion",2);
+        Yii::app()->setFlashMessage("dbVersion updated to 2",'success');
       }
 
     }
@@ -199,6 +208,7 @@ class cpVille extends PluginBase {
             }
             $tableName=$this->tableName('insee_cp');
             $this->api->createTable($this, 'insee_cp', array(
+                'id' => 'pk',
                 'insee'=>'string(5) NOT NULL',
                 'nom'=>'text NOT NULL',
                 'cp'=>'string(5) NOT NULL',
@@ -213,6 +223,12 @@ class cpVille extends PluginBase {
               App()->getDb()->createCommand()->dropTable($tableName);
               return false;
             }
+            Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_insee',$tableName,'insee,cp');
+            Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple',$tableName,'nomsimple');
+            Yii::app()->getDb()->createCommand()->createIndex('inseecp_departement',$tableName,'departement');
+            Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_departement',$tableName,'cp,departement');
+            Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple_departement',$tableName,'nomsimple,departement');
+            Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_nomsimple',$tableName,'cp,nomsimple');
             $this->tableUpdated=true;
             parent::saveSettings(array(
                 'tableVersion'=>$this->csvFileVersion,
