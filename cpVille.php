@@ -8,7 +8,7 @@
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 3.1.0
+ * @version 3.1.2
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -118,7 +118,7 @@ class cpVille extends PluginBase {
     /**
      * @var the database version
      */
-    private static $dbVersion=2;
+    private static $dbVersion=3;
 
     public function init() {
 
@@ -188,7 +188,14 @@ class cpVille extends PluginBase {
           return;
         }
         $this->set("dbVersion",2);
-        Yii::app()->setFlashMessage("dbVersion updated to 2",'success');
+        Yii::app()->setFlashMessage("Database version updated to 2",'success');
+      }
+      if($this->get('dbVersion',null,null,0) < 3) {
+        /* This one must be unique … */
+        $tableName=$this->tableName('insee_cp');
+        Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_insee_nomsimple',$tableName,'insee,cp,nomsimple',true);
+        $this->set("dbVersion",3);
+        Yii::app()->setFlashMessage("Database version updated to 3",'success');
       }
 
     }
@@ -223,6 +230,7 @@ class cpVille extends PluginBase {
               App()->getDb()->createCommand()->dropTable($tableName);
               return false;
             }
+            Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_insee_nomsimple',$tableName,'insee,cp,nomsimple',true);
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_insee',$tableName,'insee,cp');
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple',$tableName,'nomsimple');
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_departement',$tableName,'departement');
