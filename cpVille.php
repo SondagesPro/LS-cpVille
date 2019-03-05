@@ -111,14 +111,14 @@ class cpVille extends PluginBase {
     private $csvFileName="insee_cp_ville.csv";
 
     /**
-     * @var the csv file version number to load
+     * @const the csv file version number to load
      */
-    private $csvFileVersion=2;
+    const csvFileVersion=3;
 
     /**
-     * @var the database version
+     * @const the database version
      */
-    private static $dbVersion=3;
+    const dbVersion=3;
 
     public function init() {
 
@@ -136,7 +136,7 @@ class cpVille extends PluginBase {
     public function getPluginSettings($getValues=true)
     {
         if($getValues){
-            if(floatval($this->get('tableVersion',null,null,0)) < $this->csvFileVersion){
+            if(floatval($this->get('tableVersion',null,null,0)) < self::csvFileVersion){
                 $sTableName=self::tableName('insee_cp');
                 App()->getDb()->createCommand()->dropTable($sTableName);
                 Yii::app()->setFlashMessage(gT("Table for plugin was deleted to be updated"));
@@ -239,7 +239,7 @@ class cpVille extends PluginBase {
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_nomsimple',$tableName,'cp,nomsimple');
             $this->tableUpdated=true;
             parent::saveSettings(array(
-                'tableVersion'=>$this->csvFileVersion,
+                'tableVersion'=>self::csvFileVersion,
                 'dbVersion'=>self::dbVersion
             ));
         }
