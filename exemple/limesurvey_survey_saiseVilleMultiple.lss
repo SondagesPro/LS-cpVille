@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
  <LimeSurveyDocType>Survey</LimeSurveyDocType>
- <DBVersion>184</DBVersion>
+ <DBVersion>359</DBVersion>
  <languages>
   <language>fr</language>
  </languages>
@@ -18,7 +18,7 @@
   </fields>
   <rows>
    <row>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <sid><![CDATA[321269]]></sid>
     <group_name><![CDATA[VilleS]]></group_name>
     <group_order><![CDATA[387]]></group_order>
@@ -28,7 +28,7 @@
     <grelevance/>
    </row>
    <row>
-    <gid><![CDATA[1165]]></gid>
+    <gid><![CDATA[1711]]></gid>
     <sid><![CDATA[321269]]></sid>
     <group_name><![CDATA[Précédent]]></group_name>
     <group_order><![CDATA[388]]></group_order>
@@ -57,23 +57,19 @@
    <fieldname>scale_id</fieldname>
    <fieldname>same_default</fieldname>
    <fieldname>relevance</fieldname>
+   <fieldname>modulename</fieldname>
   </fields>
   <rows>
    <row>
-    <qid><![CDATA[16330]]></qid>
+    <qid><![CDATA[28496]]></qid>
     <parent_qid><![CDATA[0]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[VILLES]]></title>
     <question><![CDATA[Vos villes]]></question>
     <preg/>
-    <help><![CDATA[<p>
-	Ici les options de l'extension forcent l'affichage des sous questions supplémentaire. Ceci est facultatif (par défaut : les lignes sont masquées)</p>
-<p>Aperçu des filtres sur les sous questions :
-
-	<img alt="image de l'aperçus des filtres de sous questions" src="/upload/surveys/321269/images/apercus_filtre_sousquestions.png" style="display:block;width: 765px; height: 252px;" /></p>
-]]></help>
+    <help/>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
     <question_order><![CDATA[1]]></question_order>
@@ -81,14 +77,15 @@
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance><![CDATA[1]]></relevance>
+    <modulename/>
    </row>
    <row>
-    <qid><![CDATA[16331]]></qid>
+    <qid><![CDATA[28497]]></qid>
     <parent_qid><![CDATA[0]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1165]]></gid>
+    <gid><![CDATA[1711]]></gid>
     <type><![CDATA[Y]]></type>
-    <title><![CDATA[TOTO]]></title>
+    <title><![CDATA[valide]]></title>
     <question><![CDATA[Le code INSEE de la première villes est le {VILLES_Insee}]]></question>
     <preg/>
     <help><![CDATA[Vous pouvez cliquer sur précédent ou valider votre questionnaire.]]></help>
@@ -99,6 +96,7 @@
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance><![CDATA[1]]></relevance>
+    <modulename/>
    </row>
   </rows>
  </questions>
@@ -120,13 +118,14 @@
    <fieldname>scale_id</fieldname>
    <fieldname>same_default</fieldname>
    <fieldname>relevance</fieldname>
+   <fieldname>modulename</fieldname>
   </fields>
   <rows>
    <row>
-    <qid><![CDATA[16332]]></qid>
-    <parent_qid><![CDATA[16330]]></parent_qid>
+    <qid><![CDATA[28498]]></qid>
+    <parent_qid><![CDATA[28496]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[SaisieVille]]></title>
     <question><![CDATA[Votre ville]]></question>
@@ -137,12 +136,13 @@
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance/>
+    <modulename/>
    </row>
    <row>
-    <qid><![CDATA[16333]]></qid>
-    <parent_qid><![CDATA[16330]]></parent_qid>
+    <qid><![CDATA[28499]]></qid>
+    <parent_qid><![CDATA[28496]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[CodePostal]]></title>
     <question><![CDATA[Code postal]]></question>
@@ -153,12 +153,13 @@
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance/>
+    <modulename/>
    </row>
    <row>
-    <qid><![CDATA[16334]]></qid>
-    <parent_qid><![CDATA[16330]]></parent_qid>
+    <qid><![CDATA[28500]]></qid>
+    <parent_qid><![CDATA[28496]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[Insee]]></title>
     <question><![CDATA[Code Insee]]></question>
@@ -169,12 +170,13 @@
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance/>
+    <modulename/>
    </row>
    <row>
-    <qid><![CDATA[16335]]></qid>
-    <parent_qid><![CDATA[16330]]></parent_qid>
+    <qid><![CDATA[28501]]></qid>
+    <parent_qid><![CDATA[28496]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[Nom]]></title>
     <question><![CDATA[Nom de la ville]]></question>
@@ -185,72 +187,82 @@
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance/>
+    <modulename/>
    </row>
    <row>
-    <qid><![CDATA[16336]]></qid>
-    <parent_qid><![CDATA[16330]]></parent_qid>
+    <qid><![CDATA[28502]]></qid>
+    <parent_qid><![CDATA[28496]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[SaisieVille2]]></title>
     <question><![CDATA[Ville 2]]></question>
     <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
     <question_order><![CDATA[5]]></question_order>
     <language><![CDATA[fr]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance><![CDATA[!is_empty(VILLES_Insee)]]></relevance>
+    <modulename/>
    </row>
    <row>
-    <qid><![CDATA[16337]]></qid>
-    <parent_qid><![CDATA[16330]]></parent_qid>
+    <qid><![CDATA[28503]]></qid>
+    <parent_qid><![CDATA[28496]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[SaisieVilleB]]></title>
     <question><![CDATA[Ville B]]></question>
     <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
     <question_order><![CDATA[6]]></question_order>
     <language><![CDATA[fr]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance><![CDATA[!is_empty(VILLES_Insee2)]]></relevance>
+    <modulename/>
    </row>
    <row>
-    <qid><![CDATA[16338]]></qid>
-    <parent_qid><![CDATA[16330]]></parent_qid>
+    <qid><![CDATA[28504]]></qid>
+    <parent_qid><![CDATA[28496]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[Insee2]]></title>
     <question><![CDATA[Insee 2]]></question>
     <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
     <question_order><![CDATA[7]]></question_order>
     <language><![CDATA[fr]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance><![CDATA[!is_empty(VILLES_Insee)]]></relevance>
+    <modulename/>
    </row>
    <row>
-    <qid><![CDATA[16339]]></qid>
-    <parent_qid><![CDATA[16330]]></parent_qid>
+    <qid><![CDATA[28505]]></qid>
+    <parent_qid><![CDATA[28496]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1164]]></gid>
+    <gid><![CDATA[1710]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[InseeB]]></title>
     <question><![CDATA[Insee B]]></question>
     <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
     <question_order><![CDATA[8]]></question_order>
     <language><![CDATA[fr]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
     <relevance><![CDATA[!is_empty(VILLES_Insee2)]]></relevance>
+    <modulename/>
    </row>
   </rows>
  </subquestions>
  <surveys>
   <fields>
    <fieldname>sid</fieldname>
+   <fieldname>gsid</fieldname>
    <fieldname>admin</fieldname>
    <fieldname>expires</fieldname>
    <fieldname>startdate</fieldname>
@@ -272,10 +284,12 @@
    <fieldname>printanswers</fieldname>
    <fieldname>ipaddr</fieldname>
    <fieldname>refurl</fieldname>
+   <fieldname>showsurveypolicynotice</fieldname>
    <fieldname>publicstatistics</fieldname>
    <fieldname>publicgraphs</fieldname>
    <fieldname>listpublic</fieldname>
    <fieldname>htmlemail</fieldname>
+   <fieldname>sendconfirmation</fieldname>
    <fieldname>tokenanswerspersistence</fieldname>
    <fieldname>assessments</fieldname>
    <fieldname>usecaptcha</fieldname>
@@ -298,24 +312,24 @@
    <fieldname>bounceaccountuser</fieldname>
    <fieldname>showwelcome</fieldname>
    <fieldname>showprogress</fieldname>
+   <fieldname>questionindex</fieldname>
    <fieldname>navigationdelay</fieldname>
    <fieldname>nokeyboard</fieldname>
    <fieldname>alloweditaftercompletion</fieldname>
    <fieldname>googleanalyticsstyle</fieldname>
    <fieldname>googleanalyticsapikey</fieldname>
-   <fieldname>sendconfirmation</fieldname>
-   <fieldname>questionindex</fieldname>
   </fields>
   <rows>
    <row>
     <sid><![CDATA[321269]]></sid>
+    <gsid><![CDATA[1]]></gsid>
     <admin><![CDATA[Denis Chenu]]></admin>
     <adminemail><![CDATA[admin@example.org]]></adminemail>
     <anonymized><![CDATA[Y]]></anonymized>
     <faxto/>
     <format><![CDATA[G]]></format>
     <savetimings><![CDATA[N]]></savetimings>
-    <template><![CDATA[default]]></template>
+    <template><![CDATA[skelvanilla]]></template>
     <language><![CDATA[fr]]></language>
     <additional_languages/>
     <datestamp><![CDATA[Y]]></datestamp>
@@ -328,10 +342,12 @@
     <printanswers><![CDATA[N]]></printanswers>
     <ipaddr><![CDATA[N]]></ipaddr>
     <refurl><![CDATA[N]]></refurl>
+    <showsurveypolicynotice><![CDATA[0]]></showsurveypolicynotice>
     <publicstatistics><![CDATA[N]]></publicstatistics>
     <publicgraphs><![CDATA[N]]></publicgraphs>
     <listpublic><![CDATA[Y]]></listpublic>
     <htmlemail><![CDATA[Y]]></htmlemail>
+    <sendconfirmation><![CDATA[Y]]></sendconfirmation>
     <tokenanswerspersistence><![CDATA[N]]></tokenanswerspersistence>
     <assessments><![CDATA[N]]></assessments>
     <usecaptcha><![CDATA[D]]></usecaptcha>
@@ -348,13 +364,12 @@
     <bounceprocessing><![CDATA[N]]></bounceprocessing>
     <showwelcome><![CDATA[N]]></showwelcome>
     <showprogress><![CDATA[Y]]></showprogress>
+    <questionindex><![CDATA[0]]></questionindex>
     <navigationdelay><![CDATA[0]]></navigationdelay>
     <nokeyboard><![CDATA[N]]></nokeyboard>
     <alloweditaftercompletion><![CDATA[N]]></alloweditaftercompletion>
     <googleanalyticsstyle><![CDATA[0]]></googleanalyticsstyle>
     <googleanalyticsapikey/>
-    <sendconfirmation><![CDATA[Y]]></sendconfirmation>
-    <questionindex><![CDATA[0]]></questionindex>
    </row>
   </rows>
  </surveys>
@@ -366,6 +381,9 @@
    <fieldname>surveyls_description</fieldname>
    <fieldname>surveyls_welcometext</fieldname>
    <fieldname>surveyls_endtext</fieldname>
+   <fieldname>surveyls_policy_notice</fieldname>
+   <fieldname>surveyls_policy_error</fieldname>
+   <fieldname>surveyls_policy_notice_label</fieldname>
    <fieldname>surveyls_url</fieldname>
    <fieldname>surveyls_urldescription</fieldname>
    <fieldname>surveyls_email_invite_subj</fieldname>
@@ -377,12 +395,12 @@
    <fieldname>surveyls_email_confirm_subj</fieldname>
    <fieldname>surveyls_email_confirm</fieldname>
    <fieldname>surveyls_dateformat</fieldname>
-   <fieldname>surveyls_numberformat</fieldname>
+   <fieldname>surveyls_attributecaptions</fieldname>
    <fieldname>email_admin_notification_subj</fieldname>
    <fieldname>email_admin_notification</fieldname>
    <fieldname>email_admin_responses_subj</fieldname>
    <fieldname>email_admin_responses</fieldname>
-   <fieldname>surveyls_attributecaptions</fieldname>
+   <fieldname>surveyls_numberformat</fieldname>
    <fieldname>attachments</fieldname>
   </fields>
   <rows>
@@ -464,7 +482,6 @@ Cordialement,<br />
 <br />
 {ADMINNAME}]]></surveyls_email_confirm>
     <surveyls_dateformat><![CDATA[5]]></surveyls_dateformat>
-    <surveyls_numberformat><![CDATA[1]]></surveyls_numberformat>
     <email_admin_notification_subj><![CDATA[Soumission de réponse pour le questionnaire {SURVEYNAME}]]></email_admin_notification_subj>
     <email_admin_notification><![CDATA[Bonjour,<br />
 <br />
@@ -504,7 +521,235 @@ Visualisez les statistiques en cliquant ici :<br />
 <br />
 les réponses suivantes ont été données par le participant :<br />
 {ANSWERTABLE}]]></email_admin_responses>
+    <surveyls_numberformat><![CDATA[1]]></surveyls_numberformat>
    </row>
   </rows>
  </surveys_languagesettings>
+ <themes>
+  <theme>
+   <sid>321269</sid>
+   <template_name>skelvanilla</template_name>
+   <config>
+    <options>inherit</options>
+   </config>
+  </theme>
+ </themes>
+ <themes_inherited>
+  <theme>
+   <sid>321269</sid>
+   <template_name>skelvanilla</template_name>
+   <config>
+    <options>
+     <hideprivacyinfo>off</hideprivacyinfo>
+     <container>on</container>
+     <questionhtag>off</questionhtag>
+     <brandlogo>off</brandlogo>
+     <brandlogofile>./files/logo.png</brandlogofile>
+     <surveylistlogo>on</surveylistlogo>
+     <surveylistlogofile>./files/survey_list_header.png</surveylistlogofile>
+     <poweredlogo>on</poweredlogo>
+     <poweredlogofile>./files/poweredby.png</poweredlogofile>
+     <poweredlink>https://sondages.pro</poweredlink>
+     <poweredtext>Theme by Sondages Pro</poweredtext>
+     <questioncolor>primary</questioncolor>
+     <questionwrap>none</questionwrap>
+     <questionsize>h4</questionsize>
+     <helpcolor>text-info</helpcolor>
+     <validitycolor>text-info</validitycolor>
+     <fixedheader>off</fixedheader>
+     <theme>css/bootstrap.css</theme>
+     <bodyloaded>on</bodyloaded>
+     <removeback>on</removeback>
+     <fixnumauto>disable</fixnumauto>
+     <dynamicvalidity>off</dynamicvalidity>
+     <savelink>on</savelink>
+     <clearalllink>on</clearalllink>
+     <indexlink>on</indexlink>
+     <languagelink>on</languagelink>
+     <previouslink>off</previouslink>
+     <nextsubmitlink>off</nextsubmitlink>
+     <showclearall>on</showclearall>
+     <printcode>off</printcode>
+     <printshownoanswer>off</printshownoanswer>
+     <availablevariations>{
+  &quot;contrast&quot;: {
+    &quot;name&quot;: &quot;Contrast&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;bootstrap&quot;: {
+    &quot;name&quot;: &quot;Bootstrap&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;cerulean&quot;: {
+    &quot;name&quot;: &quot;Cerulean&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;cosmo&quot;: {
+    &quot;name&quot;: &quot;Cosmo&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;cyborg&quot;: {
+    &quot;name&quot;: &quot;Cyborg&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;darkly&quot;: {
+    &quot;name&quot;: &quot;Darkly&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;flatly&quot;: {
+    &quot;name&quot;: &quot;Flatly&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;journal&quot;: {
+    &quot;name&quot;: &quot;Journal&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;lumen&quot;: {
+    &quot;name&quot;: &quot;Lumen&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;paper&quot;: {
+    &quot;name&quot;: &quot;Paper&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;readable&quot;: {
+    &quot;name&quot;: &quot;Readable&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;sandstone&quot;: {
+    &quot;name&quot;: &quot;Sandstone&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;simplex&quot;: {
+    &quot;name&quot;: &quot;Simplex&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;slate&quot;: {
+    &quot;name&quot;: &quot;Slate&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;spacelab&quot;: {
+    &quot;name&quot;: &quot;Spacelab&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;superhero&quot;: {
+    &quot;name&quot;: &quot;Superhero&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;united&quot;: {
+    &quot;name&quot;: &quot;United&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;yeti&quot;: {
+    &quot;name&quot;: &quot;Yeti&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;fruity-apple_blossom&quot;: {
+    &quot;name&quot;: &quot;(Fruity) Apple Blossom&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;fruity-black_pearl&quot;: {
+    &quot;name&quot;: &quot;(Fruity) Black Pearl&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;fruity-free_magenta&quot;: {
+    &quot;name&quot;: &quot;(Fruity) Free magenta&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;fruity-purple_tentacle&quot;: {
+    &quot;name&quot;: &quot;(Fruity) Purple Tentacle&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;fruity-sea_green&quot;: {
+    &quot;name&quot;: &quot;(Fruity) Sea Green&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;fruity-skyline_blue&quot;: {
+    &quot;name&quot;: &quot;(Fruity) Skyline Blue&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  },
+  &quot;fruity-sunset_orange&quot;: {
+    &quot;name&quot;: &quot;(Fruity) Sunset Orange&quot;,
+    &quot;base&quot;: &quot;1&quot;,
+    &quot;button&quot;: &quot;1&quot;,
+    &quot;awesome&quot;: &quot;1&quot;,
+    &quot;button_awesome&quot;: &quot;1&quot;
+  }
+}</availablevariations>
+    </options>
+   </config>
+  </theme>
+ </themes_inherited>
 </document>

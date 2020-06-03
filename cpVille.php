@@ -123,8 +123,6 @@ class cpVille extends PluginBase {
     public function init() {
 
         $this->subscribe('beforeActivate');
-#        $this->subscribe('beforeSurveySettings');
-#        $this->subscribe('newSurveySettings');
 
         $this->subscribe('beforeQuestionRender');
         $this->subscribe('newDirectRequest');

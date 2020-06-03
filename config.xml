@@ -9,7 +9,7 @@
         <authorUrl>https://www.sondages.pro</authorUrl>
         <version>3.2.2</version>
         <license>GNU Affero General Public License</license>
-        <description><![CDATA[Allow user to enter part of postal code or town and get the insee code in survey. <strong>Not tested in 4.X, use at your own risk</strong>]]></description>
+        <description><![CDATA[Allow user to enter part of postal code or town and get the insee code in survey.</description>
     </metadata>
 
     <compatibility>
