@@ -4,12 +4,12 @@
         <name>cpVille</name>
         <type>plugin</type>
         <creationDate>2015-10-13</creationDate>
-        <lastUpdate>2020-06-03</lastUpdate>
+        <lastUpdate>2020-06-04</lastUpdate>
         <author>Denis Chenu</author>
         <authorUrl>https://www.sondages.pro</authorUrl>
-        <version>3.2.2</version>
+        <version>3.2.3</version>
         <license>GNU Affero General Public License</license>
-        <description><![CDATA[Allow user to enter part of postal code or town and get the insee code in survey.</description>
+        <description><![CDATA[Allow user to enter part of postal code or town and get the insee code in survey.]]></description>
     </metadata>
 
     <compatibility>
