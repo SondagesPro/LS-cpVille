@@ -4,11 +4,11 @@
  * Allow user to enter part of postal code or town and get the insee code in survey
  * Permet aux répondants de saisir une partie du code postal ou de la ville en choix, et récupérer le code postal
  * @author Denis Chenu <denis@sondages.pro>
- * @copyright 2015-2019 Denis Chenu <http://sondages.pro>
+ * @copyright 2015-2020 Denis Chenu <http://sondages.pro>
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 3.2.4
+ * @version 3.2.5
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -133,6 +133,9 @@ class cpVille extends PluginBase {
      */
     public function getPluginSettings($getValues=true)
     {
+        if(!Permission::model()->hasGlobalPermission('settings','read')) {
+            throw new CHttpException(403);
+        }
         if($getValues){
             if(floatval($this->get('tableVersion',null,null,0)) < self::csvFileVersion){
                 $sTableName=self::tableName('insee_cp');
@@ -148,6 +151,9 @@ class cpVille extends PluginBase {
     }
     public function beforeActivate()
     {
+        if (!$this->getEvent()) {
+            throw new CHttpException(403);
+        }
         $oEvent = $this->getEvent();
         $this->getEvent()->set('success', $this->_insertInseeCp());
     }
@@ -299,6 +305,9 @@ class cpVille extends PluginBase {
 
     public function beforeQuestionRender()
     {
+        if (!$this->getEvent()) {
+            throw new CHttpException(403);
+        }
         $oEvent=$this->getEvent();
         if($oEvent->get('type')=="Q")
         {
@@ -367,6 +376,10 @@ class cpVille extends PluginBase {
 
     public function newDirectRequest()
     {
+        if (!$this->getEvent()) {
+            throw new CHttpException(403);
+        }
+
         $oEvent = $this->event;
         if ($oEvent->get('target') == "cpVille") {
             $this->actionAuto();
