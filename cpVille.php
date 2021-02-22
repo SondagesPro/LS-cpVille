@@ -4,11 +4,11 @@
  * Allow user to enter part of postal code or town and get the insee code in survey
  * Permet aux répondants de saisir une partie du code postal ou de la ville en choix, et récupérer le code postal
  * @author Denis Chenu <denis@sondages.pro>
- * @copyright 2015-2020 Denis Chenu <http://sondages.pro>
+ * @copyright 2015-2021 Denis Chenu <http://sondages.pro>
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 3.2.5
+ * @version 3.2.6
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -393,7 +393,7 @@ class cpVille extends PluginBase {
             $this->displayJson(null);
         }
         Yii::app()->setLanguage(Yii::app()->session['LEMlang']);
-        $sParametre=trim(Yii::app()->request->getParam('term'));
+        $sParametre = trim(strval(Yii::app()->request->getParam('term')));
         // Some update directly
         $sParametre=strtr($sParametre,array(
           "/"=>" SUR ",
@@ -432,10 +432,10 @@ class cpVille extends PluginBase {
             break;
         }
         $aTowns=array();
-        if($sParametre)
+        if($sParametre !== "")
         {
             $aParametres=preg_split("/(’| |\'|=|-)/", $sParametre);
-            if(count($aParametres)==1 && ctype_digit($sParametre) && strlen($sParametre)==5)
+            if(count($aParametres)==1 && ctype_digit($sParametre))
             {
                 $aTowns = Yii::app()->db->createCommand()
                     ->select('*')
