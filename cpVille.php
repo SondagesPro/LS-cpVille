@@ -8,7 +8,7 @@
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 3.2.6
+ * @version 3.2.7
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -442,8 +442,9 @@ class cpVille extends PluginBase {
                     ->from(self::tableName('insee_cp'))
                     ->where(
                         Yii::app()->db->quoteColumnName('cp')." LIKE :cp",
-                        array(':cp'=>"{$sParametre}"))
-                    ->order("nom asc")
+                        array(':cp'=>"{$sParametre}%"))
+                    ->order($sOrderBy)
+                    ->limit($iLimit)
                     ->queryAll();
             }
             elseif(count($aParametres)==1)
