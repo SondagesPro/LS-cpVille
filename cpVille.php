@@ -137,13 +137,18 @@ class cpVille extends PluginBase {
             throw new CHttpException(403);
         }
         if($getValues){
-            if(floatval($this->get('tableVersion',null,null,0)) < self::csvFileVersion){
-                $sTableName=self::tableName('insee_cp');
-                App()->getDb()->createCommand()->dropTable($sTableName);
-                Yii::app()->setFlashMessage(gT("Table for plugin was deleted to be updated"));
-                $this->_insertInseeCp();
+            $oPlugin = Plugin::model()->findByPk($this->getId());
+            if($oPlugin && $oPlugin->active) {
+                if(floatval($this->get('tableVersion',null,null,0)) < self::csvFileVersion){
+                    $sTableName = self::tableName('insee_cp');
+                    if(in_array($sTableName, Yii::app()->db->schema->getTableNames())) {
+                        App()->getDb()->createCommand()->dropTable($sTableName);
+                        Yii::app()->setFlashMessage(gT("Table for plugin was deleted to be updated"));
+                        $this->_insertInseeCp();
+                    }
+                }
+                $this->_checkAndUpdateTable();
             }
-            $this->_checkAndUpdateTable();
         }
         $this->settings['versionInfo']['content'] = sprintf($this->settings['versionInfo']['content'],$this->get('tableVersion',null,null,0),$this->get('dbVersion',null,null,0));
         return parent::getPluginSettings($getValues);
@@ -160,6 +165,7 @@ class cpVille extends PluginBase {
 
     private function _checkAndUpdateTable() {
       $pluginId = $this->getId();
+
       if($this->get('dbVersion',null,null,0) < 2) {
         try {
           $oTransaction = Yii::app()->getDb()->beginTransaction();
