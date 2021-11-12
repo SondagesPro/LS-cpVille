@@ -43,6 +43,7 @@ For user, some helper is done
 - Copyright © 2015-2018 Denis Chenu <http://sondages.pro>
 - Copyright © 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
 - Copyright © 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
+- Copyright © 2016 Comité Régional du Tourisme de Bretagne <https://www.tourismebretagne.com/>
 - Licence : GNU General Public License <https://www.gnu.org/licenses/gpl-3.0.html>
 
 ### Data
