@@ -7,7 +7,7 @@
         <lastUpdate>2021-09-09</lastUpdate>
         <author>Denis Chenu</author>
         <authorUrl>https://www.sondages.pro</authorUrl>
-        <version>3.3.0</version>
+        <version>3.3.1</version>
         <license>GNU Affero General Public License</license>
         <description><![CDATA[Allow user to enter part of postal code or town and get the insee code in survey.]]></description>
     </metadata>

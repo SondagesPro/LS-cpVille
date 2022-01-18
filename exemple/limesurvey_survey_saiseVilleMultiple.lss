@@ -1,10 +1,932 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
  <LimeSurveyDocType>Survey</LimeSurveyDocType>
- <DBVersion>359</DBVersion>
+ <DBVersion>366</DBVersion>
  <languages>
   <language>fr</language>
  </languages>
+ <answers>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>code</fieldname>
+   <fieldname>answer</fieldname>
+   <fieldname>sortorder</fieldname>
+   <fieldname>assessment_value</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>scale_id</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[01]]></code>
+    <answer><![CDATA[Ain]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[02]]></code>
+    <answer><![CDATA[Aisne]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[03]]></code>
+    <answer><![CDATA[Allier]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[04]]></code>
+    <answer><![CDATA[Alpes-de-Haute-Provence]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[05]]></code>
+    <answer><![CDATA[Hautes-Alpes]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[06]]></code>
+    <answer><![CDATA[Alpes-Maritimes]]></answer>
+    <sortorder><![CDATA[6]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[07]]></code>
+    <answer><![CDATA[Ardèche]]></answer>
+    <sortorder><![CDATA[7]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[08]]></code>
+    <answer><![CDATA[Ardennes]]></answer>
+    <sortorder><![CDATA[8]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[09]]></code>
+    <answer><![CDATA[Ariège]]></answer>
+    <sortorder><![CDATA[9]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[10]]></code>
+    <answer><![CDATA[Aube]]></answer>
+    <sortorder><![CDATA[10]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[11]]></code>
+    <answer><![CDATA[Aude]]></answer>
+    <sortorder><![CDATA[11]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[12]]></code>
+    <answer><![CDATA[Aveyron]]></answer>
+    <sortorder><![CDATA[12]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[13]]></code>
+    <answer><![CDATA[Bouches-du-Rhône]]></answer>
+    <sortorder><![CDATA[13]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[14]]></code>
+    <answer><![CDATA[Calvados]]></answer>
+    <sortorder><![CDATA[14]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[15]]></code>
+    <answer><![CDATA[Cantal]]></answer>
+    <sortorder><![CDATA[15]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[16]]></code>
+    <answer><![CDATA[Charente]]></answer>
+    <sortorder><![CDATA[16]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[17]]></code>
+    <answer><![CDATA[Charente-Maritime]]></answer>
+    <sortorder><![CDATA[17]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[18]]></code>
+    <answer><![CDATA[Cher]]></answer>
+    <sortorder><![CDATA[18]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[19]]></code>
+    <answer><![CDATA[Corrèze]]></answer>
+    <sortorder><![CDATA[19]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[21]]></code>
+    <answer><![CDATA[Côte-d'Or]]></answer>
+    <sortorder><![CDATA[22]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[22]]></code>
+    <answer><![CDATA[Côtes d'Armor]]></answer>
+    <sortorder><![CDATA[23]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[23]]></code>
+    <answer><![CDATA[Creuse]]></answer>
+    <sortorder><![CDATA[24]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[24]]></code>
+    <answer><![CDATA[Dordogne]]></answer>
+    <sortorder><![CDATA[25]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[25]]></code>
+    <answer><![CDATA[Doubs]]></answer>
+    <sortorder><![CDATA[26]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[26]]></code>
+    <answer><![CDATA[Drôme]]></answer>
+    <sortorder><![CDATA[27]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[27]]></code>
+    <answer><![CDATA[Eure]]></answer>
+    <sortorder><![CDATA[28]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[28]]></code>
+    <answer><![CDATA[Eure-et-Loir]]></answer>
+    <sortorder><![CDATA[29]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[29]]></code>
+    <answer><![CDATA[Finistère]]></answer>
+    <sortorder><![CDATA[30]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[2A]]></code>
+    <answer><![CDATA[Corse-du-Sud]]></answer>
+    <sortorder><![CDATA[20]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[2B]]></code>
+    <answer><![CDATA[Haute-Corse]]></answer>
+    <sortorder><![CDATA[21]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[30]]></code>
+    <answer><![CDATA[Gars]]></answer>
+    <sortorder><![CDATA[31]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[31]]></code>
+    <answer><![CDATA[Haute-Garonne]]></answer>
+    <sortorder><![CDATA[32]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[32]]></code>
+    <answer><![CDATA[Gers]]></answer>
+    <sortorder><![CDATA[33]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[33]]></code>
+    <answer><![CDATA[Gironde]]></answer>
+    <sortorder><![CDATA[34]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[34]]></code>
+    <answer><![CDATA[Hérault]]></answer>
+    <sortorder><![CDATA[35]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[35]]></code>
+    <answer><![CDATA[Ille-et-Vilaine]]></answer>
+    <sortorder><![CDATA[36]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[36]]></code>
+    <answer><![CDATA[Indre]]></answer>
+    <sortorder><![CDATA[37]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[37]]></code>
+    <answer><![CDATA[Indre-et-Loire]]></answer>
+    <sortorder><![CDATA[38]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[38]]></code>
+    <answer><![CDATA[Isère]]></answer>
+    <sortorder><![CDATA[39]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[39]]></code>
+    <answer><![CDATA[Jura]]></answer>
+    <sortorder><![CDATA[40]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[40]]></code>
+    <answer><![CDATA[Landes]]></answer>
+    <sortorder><![CDATA[41]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[41]]></code>
+    <answer><![CDATA[Loir-et-Cher]]></answer>
+    <sortorder><![CDATA[42]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[42]]></code>
+    <answer><![CDATA[Loire]]></answer>
+    <sortorder><![CDATA[43]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[43]]></code>
+    <answer><![CDATA[Haute-Loire]]></answer>
+    <sortorder><![CDATA[44]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[44]]></code>
+    <answer><![CDATA[Loire-Atlantique]]></answer>
+    <sortorder><![CDATA[45]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[45]]></code>
+    <answer><![CDATA[Loiret]]></answer>
+    <sortorder><![CDATA[46]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[46]]></code>
+    <answer><![CDATA[Lot]]></answer>
+    <sortorder><![CDATA[47]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[47]]></code>
+    <answer><![CDATA[Lot-et-Garonne]]></answer>
+    <sortorder><![CDATA[48]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[48]]></code>
+    <answer><![CDATA[Lozère]]></answer>
+    <sortorder><![CDATA[49]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[49]]></code>
+    <answer><![CDATA[Maine-et-Loire]]></answer>
+    <sortorder><![CDATA[50]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[50]]></code>
+    <answer><![CDATA[Manche]]></answer>
+    <sortorder><![CDATA[51]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[51]]></code>
+    <answer><![CDATA[Marne]]></answer>
+    <sortorder><![CDATA[52]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[52]]></code>
+    <answer><![CDATA[Haute-Marne]]></answer>
+    <sortorder><![CDATA[53]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[53]]></code>
+    <answer><![CDATA[Mayenne]]></answer>
+    <sortorder><![CDATA[54]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[54]]></code>
+    <answer><![CDATA[Meurthe-et-Moselle]]></answer>
+    <sortorder><![CDATA[55]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[55]]></code>
+    <answer><![CDATA[Meuse]]></answer>
+    <sortorder><![CDATA[56]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[56]]></code>
+    <answer><![CDATA[Morbihan]]></answer>
+    <sortorder><![CDATA[57]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[57]]></code>
+    <answer><![CDATA[Moselle]]></answer>
+    <sortorder><![CDATA[58]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[58]]></code>
+    <answer><![CDATA[Nièvre]]></answer>
+    <sortorder><![CDATA[59]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[59]]></code>
+    <answer><![CDATA[Nord]]></answer>
+    <sortorder><![CDATA[60]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[60]]></code>
+    <answer><![CDATA[Oise]]></answer>
+    <sortorder><![CDATA[61]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[61]]></code>
+    <answer><![CDATA[Orne]]></answer>
+    <sortorder><![CDATA[62]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[62]]></code>
+    <answer><![CDATA[Pas-de-Calais]]></answer>
+    <sortorder><![CDATA[63]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[63]]></code>
+    <answer><![CDATA[Puy-de-Dôme]]></answer>
+    <sortorder><![CDATA[64]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[64]]></code>
+    <answer><![CDATA[Pyrénées-Atlantiques]]></answer>
+    <sortorder><![CDATA[65]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[65]]></code>
+    <answer><![CDATA[Hautes-Pyrénées]]></answer>
+    <sortorder><![CDATA[66]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[66]]></code>
+    <answer><![CDATA[Pyrénées-Orientales]]></answer>
+    <sortorder><![CDATA[67]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[67]]></code>
+    <answer><![CDATA[Bas-Rhin]]></answer>
+    <sortorder><![CDATA[68]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[68]]></code>
+    <answer><![CDATA[Haut-Rhin]]></answer>
+    <sortorder><![CDATA[69]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[69]]></code>
+    <answer><![CDATA[Rhône]]></answer>
+    <sortorder><![CDATA[70]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[70]]></code>
+    <answer><![CDATA[Haute-Saône]]></answer>
+    <sortorder><![CDATA[71]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[71]]></code>
+    <answer><![CDATA[Saône-et-Loire]]></answer>
+    <sortorder><![CDATA[72]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[72]]></code>
+    <answer><![CDATA[Sarthe]]></answer>
+    <sortorder><![CDATA[73]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[73]]></code>
+    <answer><![CDATA[Savoie]]></answer>
+    <sortorder><![CDATA[74]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[74]]></code>
+    <answer><![CDATA[Haute-Savoie]]></answer>
+    <sortorder><![CDATA[75]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[75]]></code>
+    <answer><![CDATA[Paris]]></answer>
+    <sortorder><![CDATA[76]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[76]]></code>
+    <answer><![CDATA[Seine-Maritime]]></answer>
+    <sortorder><![CDATA[77]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[77]]></code>
+    <answer><![CDATA[Seine-et-Marne]]></answer>
+    <sortorder><![CDATA[78]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[78]]></code>
+    <answer><![CDATA[Yvelines]]></answer>
+    <sortorder><![CDATA[79]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[79]]></code>
+    <answer><![CDATA[Deux-Sèvres]]></answer>
+    <sortorder><![CDATA[80]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[80]]></code>
+    <answer><![CDATA[Somme]]></answer>
+    <sortorder><![CDATA[81]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[81]]></code>
+    <answer><![CDATA[Tarn]]></answer>
+    <sortorder><![CDATA[82]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[82]]></code>
+    <answer><![CDATA[Tarn-et-Garonne]]></answer>
+    <sortorder><![CDATA[83]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[83]]></code>
+    <answer><![CDATA[Var]]></answer>
+    <sortorder><![CDATA[84]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[84]]></code>
+    <answer><![CDATA[Vaucluse]]></answer>
+    <sortorder><![CDATA[85]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[85]]></code>
+    <answer><![CDATA[Vandée]]></answer>
+    <sortorder><![CDATA[86]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[86]]></code>
+    <answer><![CDATA[Vienne]]></answer>
+    <sortorder><![CDATA[87]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[87]]></code>
+    <answer><![CDATA[Haute-Vienne]]></answer>
+    <sortorder><![CDATA[88]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[88]]></code>
+    <answer><![CDATA[Vosges]]></answer>
+    <sortorder><![CDATA[89]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[89]]></code>
+    <answer><![CDATA[Yonne]]></answer>
+    <sortorder><![CDATA[90]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[90]]></code>
+    <answer><![CDATA[Territoire de Belfort]]></answer>
+    <sortorder><![CDATA[91]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[91]]></code>
+    <answer><![CDATA[Essonne]]></answer>
+    <sortorder><![CDATA[92]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[92]]></code>
+    <answer><![CDATA[Hauts-de-Seine]]></answer>
+    <sortorder><![CDATA[93]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[93]]></code>
+    <answer><![CDATA[Seine-St-Denis]]></answer>
+    <sortorder><![CDATA[94]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[94]]></code>
+    <answer><![CDATA[Val-de-Marne]]></answer>
+    <sortorder><![CDATA[95]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[95]]></code>
+    <answer><![CDATA[Val-D'Oise]]></answer>
+    <sortorder><![CDATA[96]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[971]]></code>
+    <answer><![CDATA[Guadeloupe]]></answer>
+    <sortorder><![CDATA[97]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[972]]></code>
+    <answer><![CDATA[Martinique]]></answer>
+    <sortorder><![CDATA[98]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[973]]></code>
+    <answer><![CDATA[Guyane]]></answer>
+    <sortorder><![CDATA[99]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[974]]></code>
+    <answer><![CDATA[La Réunion]]></answer>
+    <sortorder><![CDATA[100]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <code><![CDATA[976]]></code>
+    <answer><![CDATA[Mayotte]]></answer>
+    <sortorder><![CDATA[101]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+  </rows>
+ </answers>
  <groups>
   <fields>
    <fieldname>gid</fieldname>
@@ -18,20 +940,30 @@
   </fields>
   <rows>
    <row>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <sid><![CDATA[321269]]></sid>
     <group_name><![CDATA[VilleS]]></group_name>
-    <group_order><![CDATA[387]]></group_order>
+    <group_order><![CDATA[2]]></group_order>
     <description/>
     <language><![CDATA[fr]]></language>
     <randomization_group/>
     <grelevance/>
    </row>
    <row>
-    <gid><![CDATA[1711]]></gid>
+    <gid><![CDATA[145]]></gid>
     <sid><![CDATA[321269]]></sid>
     <group_name><![CDATA[Précédent]]></group_name>
-    <group_order><![CDATA[388]]></group_order>
+    <group_order><![CDATA[3]]></group_order>
+    <description/>
+    <language><![CDATA[fr]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[148]]></gid>
+    <sid><![CDATA[321269]]></sid>
+    <group_name><![CDATA[Ville]]></group_name>
+    <group_order><![CDATA[1]]></group_order>
     <description/>
     <language><![CDATA[fr]]></language>
     <randomization_group/>
@@ -61,18 +993,18 @@
   </fields>
   <rows>
    <row>
-    <qid><![CDATA[28496]]></qid>
+    <qid><![CDATA[2513]]></qid>
     <parent_qid><![CDATA[0]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[VILLES]]></title>
     <question><![CDATA[Vos villes]]></question>
     <preg/>
-    <help/>
+    <help><![CDATA[<p>Ici les options de l'extension forcent l'affichage des sous questions supplémentaire. Ceci est facultatif (par défaut : les lignes sont masquées)</p>]]></help>
     <other><![CDATA[N]]></other>
-    <mandatory><![CDATA[Y]]></mandatory>
-    <question_order><![CDATA[1]]></question_order>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
     <language><![CDATA[fr]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
@@ -80,18 +1012,75 @@
     <modulename/>
    </row>
    <row>
-    <qid><![CDATA[28497]]></qid>
+    <qid><![CDATA[2514]]></qid>
     <parent_qid><![CDATA[0]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1711]]></gid>
+    <gid><![CDATA[145]]></gid>
     <type><![CDATA[Y]]></type>
-    <title><![CDATA[valide]]></title>
-    <question><![CDATA[Le code INSEE de la première villes est le {VILLES_Insee}]]></question>
+    <title><![CDATA[Return]]></title>
+    <question><![CDATA[<p>Le code INSEE de votre ville est le {VILLE_Insee}, son département est {Departement.shown} dont le code est {Departement.NAOK}</p>
+<p>Le code INSEE de la première de vos villes est le {VILLES_Insee}, son nom est {VILLES_Nom} </p>]]></question>
     <preg/>
     <help><![CDATA[Vous pouvez cliquer sur précédent ou valider votre questionnaire.]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[N]]></mandatory>
-    <question_order><![CDATA[1]]></question_order>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[2529]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[321269]]></sid>
+    <gid><![CDATA[148]]></gid>
+    <type><![CDATA[Q]]></type>
+    <title><![CDATA[VILLE]]></title>
+    <question><![CDATA[Votre ville]]></question>
+    <preg/>
+    <help><![CDATA[Ici les options de l'extension forcent l'affichage des sous questions supplémentaire. Ceci est facultatif (par défaut : les lignes sont masquées)]]></help>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[10066]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[321269]]></sid>
+    <gid><![CDATA[148]]></gid>
+    <type><![CDATA[!]]></type>
+    <title><![CDATA[Departement]]></title>
+    <question><![CDATA[ Question à masquer pour récupérer le département. ]]></question>
+    <preg/>
+    <help><![CDATA[Cette question est forcée par la question suivante. Ce que vous indiquerez sera modifié au passage à la question suivante.]]></help>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[10067]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[321269]]></sid>
+    <gid><![CDATA[148]]></gid>
+    <type><![CDATA[*]]></type>
+    <title><![CDATA[SetDepartement]]></title>
+    <question><![CDATA[Question équation pour poser le département : la formule prend en compte les DOM : Departement=if(intval(substr(VILLE_Insee.NAOK,0,2)) gt 95,substr(VILLE_Insee.NAOK,0,3),substr(VILLE_Insee.NAOK,0,2)) ]]></question>
+    <preg/>
+    <help><![CDATA[Le résultat sera visible à la 3ème page.]]></help>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[6]]></question_order>
     <language><![CDATA[fr]]></language>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
@@ -122,10 +1111,10 @@
   </fields>
   <rows>
    <row>
-    <qid><![CDATA[28498]]></qid>
-    <parent_qid><![CDATA[28496]]></parent_qid>
+    <qid><![CDATA[2515]]></qid>
+    <parent_qid><![CDATA[2513]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[SaisieVille]]></title>
     <question><![CDATA[Votre ville]]></question>
@@ -139,10 +1128,10 @@
     <modulename/>
    </row>
    <row>
-    <qid><![CDATA[28499]]></qid>
-    <parent_qid><![CDATA[28496]]></parent_qid>
+    <qid><![CDATA[2516]]></qid>
+    <parent_qid><![CDATA[2513]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[CodePostal]]></title>
     <question><![CDATA[Code postal]]></question>
@@ -156,10 +1145,10 @@
     <modulename/>
    </row>
    <row>
-    <qid><![CDATA[28500]]></qid>
-    <parent_qid><![CDATA[28496]]></parent_qid>
+    <qid><![CDATA[2517]]></qid>
+    <parent_qid><![CDATA[2513]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[Insee]]></title>
     <question><![CDATA[Code Insee]]></question>
@@ -173,10 +1162,10 @@
     <modulename/>
    </row>
    <row>
-    <qid><![CDATA[28501]]></qid>
-    <parent_qid><![CDATA[28496]]></parent_qid>
+    <qid><![CDATA[2518]]></qid>
+    <parent_qid><![CDATA[2513]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[Nom]]></title>
     <question><![CDATA[Nom de la ville]]></question>
@@ -190,10 +1179,10 @@
     <modulename/>
    </row>
    <row>
-    <qid><![CDATA[28502]]></qid>
-    <parent_qid><![CDATA[28496]]></parent_qid>
+    <qid><![CDATA[2519]]></qid>
+    <parent_qid><![CDATA[2513]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[SaisieVille2]]></title>
     <question><![CDATA[Ville 2]]></question>
@@ -207,10 +1196,10 @@
     <modulename/>
    </row>
    <row>
-    <qid><![CDATA[28503]]></qid>
-    <parent_qid><![CDATA[28496]]></parent_qid>
+    <qid><![CDATA[2520]]></qid>
+    <parent_qid><![CDATA[2513]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[SaisieVilleB]]></title>
     <question><![CDATA[Ville B]]></question>
@@ -224,10 +1213,10 @@
     <modulename/>
    </row>
    <row>
-    <qid><![CDATA[28504]]></qid>
-    <parent_qid><![CDATA[28496]]></parent_qid>
+    <qid><![CDATA[2521]]></qid>
+    <parent_qid><![CDATA[2513]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[Insee2]]></title>
     <question><![CDATA[Insee 2]]></question>
@@ -241,10 +1230,10 @@
     <modulename/>
    </row>
    <row>
-    <qid><![CDATA[28505]]></qid>
-    <parent_qid><![CDATA[28496]]></parent_qid>
+    <qid><![CDATA[2522]]></qid>
+    <parent_qid><![CDATA[2513]]></parent_qid>
     <sid><![CDATA[321269]]></sid>
-    <gid><![CDATA[1710]]></gid>
+    <gid><![CDATA[144]]></gid>
     <type><![CDATA[Q]]></type>
     <title><![CDATA[InseeB]]></title>
     <question><![CDATA[Insee B]]></question>
@@ -257,12 +1246,109 @@
     <relevance><![CDATA[!is_empty(VILLES_Insee2)]]></relevance>
     <modulename/>
    </row>
+   <row>
+    <qid><![CDATA[2530]]></qid>
+    <parent_qid><![CDATA[2529]]></parent_qid>
+    <sid><![CDATA[321269]]></sid>
+    <gid><![CDATA[148]]></gid>
+    <type><![CDATA[Q]]></type>
+    <title><![CDATA[SaisieVille]]></title>
+    <question><![CDATA[Votre ville]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance/>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[2531]]></qid>
+    <parent_qid><![CDATA[2529]]></parent_qid>
+    <sid><![CDATA[321269]]></sid>
+    <gid><![CDATA[148]]></gid>
+    <type><![CDATA[Q]]></type>
+    <title><![CDATA[CodePostal]]></title>
+    <question><![CDATA[Code postal]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance/>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[2532]]></qid>
+    <parent_qid><![CDATA[2529]]></parent_qid>
+    <sid><![CDATA[321269]]></sid>
+    <gid><![CDATA[148]]></gid>
+    <type><![CDATA[Q]]></type>
+    <title><![CDATA[Insee]]></title>
+    <question><![CDATA[Code Insee]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance/>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[2533]]></qid>
+    <parent_qid><![CDATA[2529]]></parent_qid>
+    <sid><![CDATA[321269]]></sid>
+    <gid><![CDATA[148]]></gid>
+    <type><![CDATA[Q]]></type>
+    <title><![CDATA[Nom]]></title>
+    <question><![CDATA[Nom de la ville]]></question>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance/>
+    <modulename/>
+   </row>
   </rows>
  </subquestions>
+ <question_attributes>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>attribute</fieldname>
+   <fieldname>value</fieldname>
+   <fieldname>language</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[2513]]></qid>
+    <attribute><![CDATA[em_validation_q]]></attribute>
+    <value><![CDATA[!is_empty(VILLES_SaisieVille.NAOK)]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[2513]]></qid>
+    <attribute><![CDATA[em_validation_q_tip]]></attribute>
+    <value><![CDATA[Cette question est obligatoire, veuillez compléter la première ville.]]></value>
+    <language><![CDATA[fr]]></language>
+   </row>
+   <row>
+    <qid><![CDATA[10067]]></qid>
+    <attribute><![CDATA[equation]]></attribute>
+    <value><![CDATA[{Departement=if(intval(substr(VILLE_Insee.NAOK,0,2)) gt 95,substr(VILLE_Insee.NAOK,0,3),substr(VILLE_Insee.NAOK,0,2))}]]></value>
+   </row>
+  </rows>
+ </question_attributes>
  <surveys>
   <fields>
    <fieldname>sid</fieldname>
-   <fieldname>gsid</fieldname>
    <fieldname>admin</fieldname>
    <fieldname>expires</fieldname>
    <fieldname>startdate</fieldname>
@@ -284,7 +1370,6 @@
    <fieldname>printanswers</fieldname>
    <fieldname>ipaddr</fieldname>
    <fieldname>refurl</fieldname>
-   <fieldname>showsurveypolicynotice</fieldname>
    <fieldname>publicstatistics</fieldname>
    <fieldname>publicgraphs</fieldname>
    <fieldname>listpublic</fieldname>
@@ -318,11 +1403,12 @@
    <fieldname>alloweditaftercompletion</fieldname>
    <fieldname>googleanalyticsstyle</fieldname>
    <fieldname>googleanalyticsapikey</fieldname>
+   <fieldname>gsid</fieldname>
+   <fieldname>showsurveypolicynotice</fieldname>
   </fields>
   <rows>
    <row>
     <sid><![CDATA[321269]]></sid>
-    <gsid><![CDATA[1]]></gsid>
     <admin><![CDATA[Denis Chenu]]></admin>
     <adminemail><![CDATA[admin@example.org]]></adminemail>
     <anonymized><![CDATA[Y]]></anonymized>
@@ -336,13 +1422,12 @@
     <usecookie><![CDATA[N]]></usecookie>
     <allowregister><![CDATA[N]]></allowregister>
     <allowsave><![CDATA[Y]]></allowsave>
-    <autonumber_start><![CDATA[3]]></autonumber_start>
+    <autonumber_start><![CDATA[168]]></autonumber_start>
     <autoredirect><![CDATA[N]]></autoredirect>
     <allowprev><![CDATA[Y]]></allowprev>
-    <printanswers><![CDATA[N]]></printanswers>
+    <printanswers><![CDATA[Y]]></printanswers>
     <ipaddr><![CDATA[N]]></ipaddr>
     <refurl><![CDATA[N]]></refurl>
-    <showsurveypolicynotice><![CDATA[0]]></showsurveypolicynotice>
     <publicstatistics><![CDATA[N]]></publicstatistics>
     <publicgraphs><![CDATA[N]]></publicgraphs>
     <listpublic><![CDATA[Y]]></listpublic>
@@ -357,12 +1442,12 @@
     <emailresponseto/>
     <emailnotificationto/>
     <tokenlength><![CDATA[15]]></tokenlength>
-    <showxquestions><![CDATA[Y]]></showxquestions>
+    <showxquestions><![CDATA[N]]></showxquestions>
     <showgroupinfo><![CDATA[B]]></showgroupinfo>
     <shownoanswer><![CDATA[Y]]></shownoanswer>
     <showqnumcode><![CDATA[X]]></showqnumcode>
     <bounceprocessing><![CDATA[N]]></bounceprocessing>
-    <showwelcome><![CDATA[N]]></showwelcome>
+    <showwelcome><![CDATA[Y]]></showwelcome>
     <showprogress><![CDATA[Y]]></showprogress>
     <questionindex><![CDATA[0]]></questionindex>
     <navigationdelay><![CDATA[0]]></navigationdelay>
@@ -370,6 +1455,8 @@
     <alloweditaftercompletion><![CDATA[N]]></alloweditaftercompletion>
     <googleanalyticsstyle><![CDATA[0]]></googleanalyticsstyle>
     <googleanalyticsapikey/>
+    <gsid><![CDATA[1]]></gsid>
+    <showsurveypolicynotice><![CDATA[0]]></showsurveypolicynotice>
    </row>
   </rows>
  </surveys>
@@ -381,9 +1468,6 @@
    <fieldname>surveyls_description</fieldname>
    <fieldname>surveyls_welcometext</fieldname>
    <fieldname>surveyls_endtext</fieldname>
-   <fieldname>surveyls_policy_notice</fieldname>
-   <fieldname>surveyls_policy_error</fieldname>
-   <fieldname>surveyls_policy_notice_label</fieldname>
    <fieldname>surveyls_url</fieldname>
    <fieldname>surveyls_urldescription</fieldname>
    <fieldname>surveyls_email_invite_subj</fieldname>
@@ -402,354 +1486,36 @@
    <fieldname>email_admin_responses</fieldname>
    <fieldname>surveyls_numberformat</fieldname>
    <fieldname>attachments</fieldname>
+   <fieldname>surveyls_policy_notice</fieldname>
+   <fieldname>surveyls_policy_error</fieldname>
+   <fieldname>surveyls_policy_notice_label</fieldname>
   </fields>
   <rows>
    <row>
     <surveyls_survey_id><![CDATA[321269]]></surveyls_survey_id>
     <surveyls_language><![CDATA[fr]]></surveyls_language>
-    <surveyls_title><![CDATA[autocomplete ville multiple]]></surveyls_title>
-    <surveyls_description><![CDATA[Questionnaire de test de l'extension pour LimeSurvey de code postal/Ville/INSEE]]></surveyls_description>
-    <surveyls_welcometext/>
+    <surveyls_title><![CDATA[Demonstration cpVille]]></surveyls_title>
+    <surveyls_description/>
+    <surveyls_welcometext><![CDATA[<p>Questionnaire de test et de démonstration de l'extension pour LimeSurvey pour la recherche automatique de code postal et INSEE.</p>
+<p>Pour se procurer cette extension et en savoir plus : <a href="https://extensions.sondages.pro/cpVille" rel="external">la page de l'extension</a></p>]]></surveyls_welcometext>
     <surveyls_endtext/>
-    <surveyls_url/>
-    <surveyls_urldescription/>
-    <surveyls_email_invite_subj><![CDATA[Invitation à participer à un questionnaire]]></surveyls_email_invite_subj>
-    <surveyls_email_invite><![CDATA[Cher(e) {FIRSTNAME},<br />
-<br />
-Vous avez été invité(e) à participer à un questionnaire.<br />
-<br />
-Celui-ci est intitulé :<br />
-"{SURVEYNAME}"<br />
-<br />
-"{SURVEYDESCRIPTION}"<br />
-<br />
-Pour participer, veuillez cliquer sur le lien ci-dessous.<br />
-<br />
-Cordialement,<br />
-<br />
-{ADMINNAME} ({ADMINEMAIL})<br />
-<br />
-----------------------------------------------<br />
-Cliquez ici pour remplir ce questionnaire :<br />
-{SURVEYURL}<br />
-<br />
-Si vous ne souhaitez pas participer à ce questionnaire et ne souhaitez plus recevoir aucune invitation, veuillez cliquer sur le lien suivant :<br />
-{OPTOUTURL}<br />
-<br />
-Si vous êtes sur liste noire mais que vous voulez participer à ce questionnaire et recevoir les invitations, merci de cliquer sur le lien suivant :<br />
-{OPTINURL}]]></surveyls_email_invite>
-    <surveyls_email_remind_subj><![CDATA[Rappel pour participer à un questionnaire]]></surveyls_email_remind_subj>
-    <surveyls_email_remind><![CDATA[Cher(e) {FIRSTNAME},<br />
-<br />
-Vous avez été invité(e) à participer à un questionnaire récemment.<br />
-<br />
-Nous avons pris en compte que vous n'avez pas encore complété le questionnaire, et nous vous rappelons que celui-ci est toujours disponible si vous souhaitez participer.<br />
-<br />
-Le questionnaire est intitulé :<br />
-"{SURVEYNAME}"<br />
-<br />
-"{SURVEYDESCRIPTION}"<br />
-<br />
-Pour participer, veuillez cliquer sur le lien ci-dessous.<br />
-<br />
-Cordialement,<br />
-<br />
-{ADMINNAME} ({ADMINEMAIL})<br />
-<br />
-----------------------------------------------<br />
-Cliquez ici pour faire le questionnaire:<br />
-{SURVEYURL}<br />
-<br />
-Si vous ne souhaitez pas participer à ce questionnaire et ne souhaitez plus recevoir aucune invitation, veuillez cliquer sur le lien suivant :<br />
-{OPTOUTURL}]]></surveyls_email_remind>
-    <surveyls_email_register_subj><![CDATA[Confirmation d'enregistrement au questionnaire]]></surveyls_email_register_subj>
-    <surveyls_email_register><![CDATA[Bonjour {FIRSTNAME},<br />
-<br />
-Vous (ou quelqu’un utilisant votre adresse électronique) vous êtes enregistré pour participer à un questionnaire en ligne intitulé {SURVEYNAME}.<br />
-<br />
-Pour compléter ce questionnaire, cliquez sur le lien suivant :<br />
-{SURVEYURL}<br />
-<br />
-Si vous avez des questions à propos de ce questionnaire, ou si vous ne vous êtes pas enregistré pour participer à celui-ci et croyez que ce courriel est une erreur, veuillez contacter {ADMINNAME} à l’adresse {ADMINEMAIL}]]></surveyls_email_register>
-    <surveyls_email_confirm_subj><![CDATA[Confirmation de votre participation à notre questionnaire]]></surveyls_email_confirm_subj>
-    <surveyls_email_confirm><![CDATA[Bonjour {FIRSTNAME},<br />
-<br />
-Ce courriel vous confirme que vous avez complété le questionnaire intitulé {SURVEYNAME} et que votre réponse a été enregistrée. Merci pour votre participation.<br />
-<br />
-Si vous avez des questions à propos de ce courriel, veuillez contacter {ADMINNAME} à l’adresse {ADMINEMAIL}.<br />
-<br />
-Cordialement,<br />
-<br />
-{ADMINNAME}]]></surveyls_email_confirm>
+    <surveyls_url><![CDATA[https://extensions.sondages.pro/questions-updating-and-managing/cpville-add-postal-code-and-insee-management-in-your-data/]]></surveyls_url>
+    <surveyls_urldescription><![CDATA[La page du plugin]]></surveyls_urldescription>
+    <surveyls_email_invite_subj />
+    <surveyls_email_invite />
+    <surveyls_email_remind_subj />
+    <surveyls_email_remind />
+    <surveyls_email_register_subj />
+    <surveyls_email_register />
+    <surveyls_email_confirm_subj />
+    <surveyls_email_confirm />
     <surveyls_dateformat><![CDATA[5]]></surveyls_dateformat>
-    <email_admin_notification_subj><![CDATA[Soumission de réponse pour le questionnaire {SURVEYNAME}]]></email_admin_notification_subj>
-    <email_admin_notification><![CDATA[Bonjour,<br />
-<br />
-Une nouvelle réponse a été soumise pour votre questionnaire '{SURVEYNAME}'.<br />
-<br />
-Cliquez sur le lien suivant pour recharger votre questionnaire :<br />
-{RELOADURL}<br />
-<br />
-Cliquez sur le lien suivant pour voir la réponse :<br />
-{VIEWRESPONSEURL}<br />
-<br />
-Cliquez sur le lien suivant pour éditer la réponse :<br />
-{EDITRESPONSEURL}<br />
-<br />
-Visualisez les statistiques en cliquant ici :<br />
-{STATISTICSURL}<br />
-<br />
-les réponses suivantes ont été données par le participant :<br />
-{ANSWERTABLE}]]></email_admin_notification>
-    <email_admin_responses_subj><![CDATA[Soumission de réponse pour le questionnaire {SURVEYNAME} avec résultats]]></email_admin_responses_subj>
-    <email_admin_responses><![CDATA[Bonjour,<br />
-<br />
-Une nouvelle réponse a été soumise pour votre questionnaire '{SURVEYNAME}'.<br />
-<br />
-Cliquez sur le lien suivant pour recharger votre questionnaire :<br />
-{RELOADURL}<br />
-<br />
-Cliquez sur le lien suivant pour voir la réponse :<br />
-{VIEWRESPONSEURL}<br />
-<br />
-Cliquez sur le lien suivant pour éditer la réponse individuelle :<br />
-{EDITRESPONSEURL}<br />
-<br />
-Visualisez les statistiques en cliquant ici :<br />
-{STATISTICSURL}<br />
-<br />
-<br />
-les réponses suivantes ont été données par le participant :<br />
-{ANSWERTABLE}]]></email_admin_responses>
+    <email_admin_notification_subj />
+    <email_admin_notification />
+    <email_admin_responses_subj />
+    <email_admin_responses />
     <surveyls_numberformat><![CDATA[1]]></surveyls_numberformat>
    </row>
   </rows>
  </surveys_languagesettings>
- <themes>
-  <theme>
-   <sid>321269</sid>
-   <template_name>skelvanilla</template_name>
-   <config>
-    <options>inherit</options>
-   </config>
-  </theme>
- </themes>
- <themes_inherited>
-  <theme>
-   <sid>321269</sid>
-   <template_name>skelvanilla</template_name>
-   <config>
-    <options>
-     <hideprivacyinfo>off</hideprivacyinfo>
-     <container>on</container>
-     <questionhtag>off</questionhtag>
-     <brandlogo>off</brandlogo>
-     <brandlogofile>./files/logo.png</brandlogofile>
-     <surveylistlogo>on</surveylistlogo>
-     <surveylistlogofile>./files/survey_list_header.png</surveylistlogofile>
-     <poweredlogo>on</poweredlogo>
-     <poweredlogofile>./files/poweredby.png</poweredlogofile>
-     <poweredlink>https://sondages.pro</poweredlink>
-     <poweredtext>Theme by Sondages Pro</poweredtext>
-     <questioncolor>primary</questioncolor>
-     <questionwrap>none</questionwrap>
-     <questionsize>h4</questionsize>
-     <helpcolor>text-info</helpcolor>
-     <validitycolor>text-info</validitycolor>
-     <fixedheader>off</fixedheader>
-     <theme>css/bootstrap.css</theme>
-     <bodyloaded>on</bodyloaded>
-     <removeback>on</removeback>
-     <fixnumauto>disable</fixnumauto>
-     <dynamicvalidity>off</dynamicvalidity>
-     <savelink>on</savelink>
-     <clearalllink>on</clearalllink>
-     <indexlink>on</indexlink>
-     <languagelink>on</languagelink>
-     <previouslink>off</previouslink>
-     <nextsubmitlink>off</nextsubmitlink>
-     <showclearall>on</showclearall>
-     <printcode>off</printcode>
-     <printshownoanswer>off</printshownoanswer>
-     <availablevariations>{
-  &quot;contrast&quot;: {
-    &quot;name&quot;: &quot;Contrast&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;bootstrap&quot;: {
-    &quot;name&quot;: &quot;Bootstrap&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;cerulean&quot;: {
-    &quot;name&quot;: &quot;Cerulean&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;cosmo&quot;: {
-    &quot;name&quot;: &quot;Cosmo&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;cyborg&quot;: {
-    &quot;name&quot;: &quot;Cyborg&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;darkly&quot;: {
-    &quot;name&quot;: &quot;Darkly&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;flatly&quot;: {
-    &quot;name&quot;: &quot;Flatly&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;journal&quot;: {
-    &quot;name&quot;: &quot;Journal&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;lumen&quot;: {
-    &quot;name&quot;: &quot;Lumen&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;paper&quot;: {
-    &quot;name&quot;: &quot;Paper&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;readable&quot;: {
-    &quot;name&quot;: &quot;Readable&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;sandstone&quot;: {
-    &quot;name&quot;: &quot;Sandstone&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;simplex&quot;: {
-    &quot;name&quot;: &quot;Simplex&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;slate&quot;: {
-    &quot;name&quot;: &quot;Slate&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;spacelab&quot;: {
-    &quot;name&quot;: &quot;Spacelab&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;superhero&quot;: {
-    &quot;name&quot;: &quot;Superhero&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;united&quot;: {
-    &quot;name&quot;: &quot;United&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;yeti&quot;: {
-    &quot;name&quot;: &quot;Yeti&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;fruity-apple_blossom&quot;: {
-    &quot;name&quot;: &quot;(Fruity) Apple Blossom&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;fruity-black_pearl&quot;: {
-    &quot;name&quot;: &quot;(Fruity) Black Pearl&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;fruity-free_magenta&quot;: {
-    &quot;name&quot;: &quot;(Fruity) Free magenta&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;fruity-purple_tentacle&quot;: {
-    &quot;name&quot;: &quot;(Fruity) Purple Tentacle&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;fruity-sea_green&quot;: {
-    &quot;name&quot;: &quot;(Fruity) Sea Green&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;fruity-skyline_blue&quot;: {
-    &quot;name&quot;: &quot;(Fruity) Skyline Blue&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  },
-  &quot;fruity-sunset_orange&quot;: {
-    &quot;name&quot;: &quot;(Fruity) Sunset Orange&quot;,
-    &quot;base&quot;: &quot;1&quot;,
-    &quot;button&quot;: &quot;1&quot;,
-    &quot;awesome&quot;: &quot;1&quot;,
-    &quot;button_awesome&quot;: &quot;1&quot;
-  }
-}</availablevariations>
-    </options>
-   </config>
-  </theme>
- </themes_inherited>
 </document>
