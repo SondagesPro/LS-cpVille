@@ -1,4 +1,6 @@
+
 function autoCpVille(qId,options){
+    
   var answerLibels=$("#question"+qId+" input[name*='X"+qId+options.answerLibel+"']");
   if(answerLibels.length>=1)
   {
@@ -67,6 +69,9 @@ function autoCpVille(qId,options){
                     $.each(suggestion.data, function(key, value) {
                         $("input[type=text][name$='X"+qId+key+endLibel+"']").val(value).trigger('keyup');
                     });
+                }
+                if(suggestion.data.value == "") {
+                    $(this).val("");
                 }
             }
       });
