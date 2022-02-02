@@ -35,6 +35,16 @@ function autoCpVille(qId,options){
         optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+options.answerNom+endLibel+"']");
         optionShow.push(0);
       }
+      if(options.otherColumns){
+        $.each(options.otherColumns, function( index, value ) {
+            optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+value+endLibel+"']");
+            optionShow.push(false);
+        });
+      }
+      console.warn([
+        optionLines,
+        optionShow
+      ]);
       $.each(optionLines, function( index, value ) {
         if(!optionShow[index])
         {
@@ -49,7 +59,7 @@ function autoCpVille(qId,options){
             serviceUrl : options.jsonurl,
             dataType: "json",
             paramName: 'term',
-            minChars: 1,
+            minChars: 2,
             autoSelectFirst:true,
             transformResult: function(responses) {
                 return {

@@ -9,7 +9,7 @@
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @license GPL v3
- * @version 4.0.0
+ * @version 4.2.0
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,8 +33,14 @@ class cpVille extends PluginBase
 
     protected $settings = array(
         'versionInfo' => array(
-            'type' => ' info',
+            'type' => 'info',
             'content' => '<div class= "alert alert-info">Data version is %s. Database version is %s</div>',
+        ),
+        'disableUpdateDb' => array(
+            'type' => 'boolean',
+            'label' => 'Keep current database when plugin was updated',
+            'help' => 'If the plugin update the database version, your current database was reset to the new one. Activate this option if you want to keep your current database.',
+            'default' => 1,
         ),
         /* Default auto */
         'answerLibel' => array(
@@ -100,9 +106,15 @@ class cpVille extends PluginBase
             'label' => 'Afficher la réponse code insee (en lecture seulement)',
             'default' => 0,
         ),
+        'otherColumns' => array(
+            'type' => 'text',
+            'label' => 'Autre colonnes à remonter automatiquement et à masquer.',
+            'help' => 'Une valeur par ligne, ces colonnes seront masquées automatiquements. Les noms label et value sont reservés.',
+            'default' => "cp\nnomsimple\nregion\ndepartement\npopulation\npopulationint\n",
+        ),
         'showCopyright' => array(
             'type' => 'boolean',
-            'label' => 'Ne pas afficher le copyright des données, attention : assurez d’avoir les droits si vous décochez cette option.',
+            'label' => 'Ne pas afficher le copyright des données, attention : assurez d’avoir les droits si vous décochez cette option. ',
             'default' => 0,
         ),
     );
@@ -142,25 +154,33 @@ class cpVille extends PluginBase
             throw new CHttpException(403);
         }
         if ($getValues) {
-            $oPlugin = Plugin::model()->findByPk($this->getId());
-            if ($oPlugin && $oPlugin->active) {
-                if (floatval($this->get('tableVersion', null, null, 0)) < self::csvFileVersion) {
-                    $sTableName = self::tableName('insee_cp');
-                    if (in_array($sTableName, Yii::app()->db->schema->getTableNames())) {
-                        App()->getDb()->createCommand()->dropTable($sTableName);
-                        Yii::app()->setFlashMessage(gT("Table for plugin was deleted to be updated"));
-                        $this->_insertInseeCp();
+            if(!$this->get('disableUpdateDb', null, null, 1)) {
+                $oPlugin = Plugin::model()->findByPk($this->getId());
+                if ($oPlugin && $oPlugin->active) {
+                    if (floatval($this->get('tableVersion', null, null, 0)) < self::csvFileVersion) {
+                        $sTableName = self::tableName('insee_cp');
+                        if (in_array($sTableName, Yii::app()->db->schema->getTableNames())) {
+                            App()->getDb()->createCommand()->dropTable($sTableName);
+                            Yii::app()->setFlashMessage(gT("Table for plugin was deleted to be updated"));
+                            $this->_insertInseeCp();
+                        }
                     }
+                    $this->_checkAndUpdateTable();
                 }
-                $this->_checkAndUpdateTable();
             }
+
         }
         $this->settings['versionInfo']['content'] = sprintf(
             $this->settings['versionInfo']['content'],
             $this->get('tableVersion', null, null, 0),
             $this->get('dbVersion', null, null, 0)
         );
-        return parent::getPluginSettings($getValues);
+        $settings = parent::getPluginSettings($getValues);
+        if ($getValues) {
+            $otherExtraColumns = $this->getExtraOtherColumns();
+            $settings['otherColumns']['current'] = implode("\n",$otherExtraColumns);
+        }
+        return $settings;
     }
     public function beforeActivate()
     {
@@ -241,11 +261,6 @@ class cpVille extends PluginBase
                 'population' => 'float',
                 'populationint' => 'int',
             ));
-            /* TODO : add index */
-            if (!$this->_addDataToTable()) {
-                App()->getDb()->createCommand()->dropTable($tableName);
-                return false;
-            }
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_insee_nomsimple', $tableName, 'insee,cp,nomsimple', true);
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_insee', $tableName, 'insee,cp');
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple', $tableName, 'nomsimple');
@@ -253,6 +268,11 @@ class cpVille extends PluginBase
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_departement', $tableName, 'cp,departement');
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple_departement', $tableName, 'nomsimple,departement');
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_nomsimple', $tableName, 'cp,nomsimple');
+            /* TODO : add index */
+            if (!$this->_addDataToTable()) {
+                App()->getDb()->createCommand()->dropTable($tableName);
+                return false;
+            }
             $this->tableUpdated = true;
             parent::saveSettings(array(
                 'tableVersion' => self::csvFileVersion,
@@ -334,6 +354,7 @@ class cpVille extends PluginBase
                     'answerNom' => $this->get('answerNom', null, null, $this->settings['answerNom']['default']),
                     'showCp' => intval($this->get('showCp', null, null, $this->settings['showCp']['default'])),
                     'showInsee' => intval($this->get('showInsee', null, null, $this->settings['showInsee']['default'])),
+                    'otherColumns' => $this->getExtraOtherColumns(),
                     'placeholder' => $this->_translate("Enter some character or first caracter of your zipcode."),
                 );
 
@@ -440,6 +461,7 @@ class cpVille extends PluginBase
                 $sOrderBy = "population desc";
                 break;
         }
+        $extraOthersColumns = $this->getExtraOtherColumns();
         $aTowns = array();
         if ($sParametre !== "") {
             $aParametres = preg_split("/(’| |\'|=|-)/", $sParametre);
@@ -517,15 +539,17 @@ class cpVille extends PluginBase
                         $sValue = $aTown['nom'];
                         break;
                 }
+                $fixedLabelTown = array(
+                    'label' => $sLabel,
+                    'value' => $sValue,
+                    $this->get('answerCp', null, null, $this->settings['answerCp']['default']) => $aTown["cp"],
+                    $this->get('answerInsee', null, null, $this->settings['answerInsee']['default']) => $aTown["insee"],
+                    $this->get('answerNom', null, null, $this->settings['answerNom']['default']) => $aTown["nom"],
+                );
+                $aTown = array_intersect_key($aTown, array_flip($extraOthersColumns));
                 $addArray = array_replace(
                     $aTown,
-                    array(
-                        'label' => $sLabel,
-                        'value' => $sValue,
-                        $this->get('answerCp', null, null, $this->settings['answerCp']['default']) => $aTown["cp"],
-                        $this->get('answerInsee', null, null, $this->settings['answerInsee']['default']) => $aTown["insee"],
-                        $this->get('answerNom', null, null, $this->settings['answerNom']['default']) => $aTown["nom"],
-                    )
+                    $fixedLabelTown
                 );
                 $aReturnArray[] = $addArray;
             }
@@ -596,5 +620,16 @@ class cpVille extends PluginBase
                 'devbridge-autocomplete',
             ),
         ));
+    }
+    
+    /**
+     * get the default coolumn to be returned
+     */
+    private function getExtraOtherColumns() {
+        $extraColumns = $this->get('otherColumns', null, null, "cp\nnomsimple\nregion\ndepartement\npopulation\npopulationint\n");
+        $extraColumns = preg_split('/\r\n|\r|\n/', $extraColumns,-1, PREG_SPLIT_NO_EMPTY);
+        $extraColumns = array_map('sanitize_paranoid_string', $extraColumns);
+        $extraColumns = array_filter($extraColumns);
+        return $extraColumns;
     }
 }
