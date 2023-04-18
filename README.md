@@ -1,40 +1,40 @@
 # Cope postal - Ville
-Allow to use a multi text question to get Postal code, town name and Insee code. User have an autocomplete helper to search the town (only french town actually).
+Allows the use of multi text questions to get a Postal code, town name and Insee code. Users have an autocomplete helper to search for the town (only French town at the moment).
 
 ## Installation
 
 ### Via GIT
 - Go to your LimeSurvey Directory (version up to 2.05)
-- Clone in plugins/cpVille directory
+- Clone in the plugins/cpVille directory
 
 ### Via ZIP dowload
 - Get the file at <http://extensions.sondages.pro/IMG/auto/cpVille.zip> and uncompress it
-- Move the files included to plugins/cpVille directory
+- Move the files included to the plugins/cpVille directory
 
 ## Setup and activation
-- During activation an new table is created and data is set up in this table.
-- If your hoster have very limited time for PHP script : you can send yourself the DB
-- You can set yourself the DB : name must be lime_cpville_insee_cp (lime_ must be replaced by real prefix) and column insee, nom, cp, nomsimple.
-- You can add another column : this can prefill specific subquestion with same code.
+- During activation a new table is created and data is set up in this table.
+- If your host has very little time allowed for PHP scripts : you can send yourself the DB
+- You can set up the DB table yourself : its name must be lime_cpville_insee_cp (lime_ must be replaced by your prefix) and have the columns "insee", "nom", "cp", and "nomsimple".
+- You can add another column : this can prefill specific subquestions with the same code.
 - If needed : you can update the database your way.
 
 ## Documentation
-In a multi text question type : set a Sub question with SaisieVille automatically launch a system to
-- Allow user search for postal code or part of town name to fill the sub question
-- Fill Extra sub question with code CodePostal with the postal code
-- Fill Extra sub question with code Insee with the Insee code
-- Fill Extra sub question with code Nom with the town name
-- Fill Extra sub question with code as column name od the DB (you can test with region or departement)
+In a multi text question type : set up a Sub question with the code "SaisieVille" and it will automatically launch a system to
+- Allow users to search for postal codes or part of town name to fill in the sub question
+- Fill an Extra sub question whose code is "CodePostal" with the postal code
+- Fill an Extra sub question whose code is "Insee" with the Insee code
+- Fill an Extra sub question whose code is "Nom" with the town name
+- Fill an Extra sub question whose code is a column name of the DB table (you can test with "region" or "departement")
 
-Plugin settings allow admin user to 
+Plugin settings allow admin users to 
 - Update the default sub question code and use awn code
 - Choose the maximum number of lines returned
-- Choose if extra sub question is shown or not
-- Choose what to show to user and what to save in the database of LimeSurvey
+- Choose if extra sub questions are shown or not
+- Choose what to show to users and what to save in the database of LimeSurvey
 
-For user, some helper is done
-- Search on postal code if only number is entered
-- Search on multiple part : example villen asc
+For users, some help is provided
+- Search on postal code if only numbers are entered
+- Search on multiple parts : example villen asc
 
 ## Home page & Copyright
 
