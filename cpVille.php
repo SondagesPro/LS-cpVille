@@ -5,11 +5,13 @@
  * Allow user to enter part of postal code or town and get the insee code in survey
  * Permet aux répondants de saisir une partie du code postal ou de la ville en choix, et récupérer le code postal
  * @author Denis Chenu <denis@sondages.pro>
- * @copyright 2015-2021 Denis Chenu <http://sondages.pro>
+ * @copyright 2015-2023 Denis Chenu <http://sondages.pro>
+ * @copyright 2023 Contributors <https://gitlab.com/SondagesPro/QuestionSettingsType/cpVille/-/graphs/master?ref_type=heads>
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
+ * @copyright 2016 Comité Régional du Tourisme de Bretagne <https://www.tourismebretagne.com/>
  * @license GPL v3
- * @version 4.2.0
+ * @version 4.2.1
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -377,12 +379,12 @@ class cpVille extends PluginBase
                     $iCountOtherQuestion = Question::model()->count($oCriteria);
                     if (!$iCountOtherQuestion) {
                         $man_message = "<strong><br /><span class='errormandatory'>" . gT('This question is mandatory') . ".  </span></strong>\n";
-                        if (version_compare(App()->getConfig('versionnumber'), 3, ">= ") && version_compare(App()->getConfig('versionnumber'), 4, "<")) {
+                        if (version_compare(App()->getConfig('versionnumber'), 3, ">=") && version_compare(App()->getConfig('versionnumber'), 4, "<")) {
                             $man_message = Yii::app()->getController()->renderPartial('//survey/questions/question_help/mandatory_tip', array(
                                 'sMandatoryText' => gT('This question is mandatory'),
                             ), true);
                         }
-                        if (version_compare(App()->getConfig('versionnumber'), 4, ">= ")) {
+                        if (version_compare(App()->getConfig('versionnumber'), 4, ">=")) {
                             $man_message = App()->twigRenderer->renderPartial(
                                 '/survey/questions/question_help/mandatory_tip.twig',
                                 array(
