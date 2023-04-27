@@ -38,19 +38,19 @@ class cpVille extends PluginBase
         ),
         'disableUpdateDb' => array(
             'type' => 'boolean',
-            'label' => 'Keep current database when plugin was updated',
-            'help' => 'If the plugin update the database version, your current database was reset to the new one. Activate this option if you want to keep your current database.',
+            'label' => 'Keep current database when plugin is updated',
+            'help' => 'If the plugin updates the database version, your current database will be reset to the new one. Activate this option if you want to keep your current database.',
             'default' => 1,
         ),
         /* Default auto */
         'answerLibel' => array(
             'type' => 'string',
-            'label' => 'Code de la sous question de saisie automatisée (toutes questions de type multiple-texte avec cette sous question sera utilisée directement)',
+            'label' => 'Code de la sous question de saisie automatisée (toute question de type multiple-texte avec cette sous question sera utilisée directement)',
             'default' => 'SaisieVille',
         ),
         'formatVisualisation' => array(
             'type' => 'select',
-            'label' => 'Format des réponses affichée dans la liste',
+            'label' => 'Format des réponses affichées dans la liste',
             'options' => array(
                 'Libel' => 'Libellé',
                 'CpLibel' => '[Code postal] Libellé',
@@ -68,22 +68,22 @@ class cpVille extends PluginBase
         ),
         'limitlist' => array(
             'type' => 'int',
-            'label' => 'Nombre de réponse retournée (max)',
+            'label' => 'Nombre de réponses retournées (max)',
             'default' => 10
         ),
         'orderby' => array(
             'type' => 'select',
-            'label' => 'Ordonnées les réponse selon :',
+            'label' => 'Ordonner les réponses selon :',
             'options' => array(
                 'pop' => 'Population',
-                'nom' => 'Nom (aphabétique)',
+                'nom' => 'Nom (alphabétique)',
             ),
             'default' => 'pop',
-            'help' => "Uniquement pour la recheche par texte"
+            'help' => "Uniquement pour la recherche par texte"
         ),
         'answerCp' => array(
             'type' => 'string',
-            'label' => 'Code de la réponse de code Code postal',
+            'label' => 'Code de la réponse pour le Code postal',
             'default' => 'CodePostal',
         ),
         'answerInsee' => array(
@@ -109,12 +109,12 @@ class cpVille extends PluginBase
         'otherColumns' => array(
             'type' => 'text',
             'label' => 'Autre colonnes à remonter automatiquement et à masquer.',
-            'help' => 'Une valeur par ligne, ces colonnes seront masquées automatiquements. Les noms label et value sont reservés.',
+            'help' => 'Une valeur par ligne, ces colonnes seront masquées automatiquement. Les noms "label" et "value" sont reservés.',
             'default' => "cp\nnomsimple\nregion\ndepartement\npopulation\npopulationint\n",
         ),
         'showCopyright' => array(
             'type' => 'boolean',
-            'label' => 'Ne pas afficher le copyright des données, attention : assurez d’avoir les droits si vous décochez cette option. ',
+            'label' => 'Ne pas afficher le copyright des données. Attention : assurez vous d’avoir les droits si vous décochez cette option.',
             'default' => 0,
         ),
     );
@@ -161,7 +161,7 @@ class cpVille extends PluginBase
                         $sTableName = self::tableName('insee_cp');
                         if (in_array($sTableName, Yii::app()->db->schema->getTableNames())) {
                             App()->getDb()->createCommand()->dropTable($sTableName);
-                            Yii::app()->setFlashMessage(gT("Table for plugin was deleted to be updated"));
+                            Yii::app()->setFlashMessage(gT("The plugin's table was deleted in order to be updated"));
                             $this->_insertInseeCp();
                         }
                     }
@@ -223,7 +223,7 @@ class cpVille extends PluginBase
                 $oTransaction->commit();
             } catch (Exception $e) {
                 $oTransaction->rollback();
-                Yii::app()->setFlashMessage("An error happen during update : <div>" . $e->getMessage() . "</div>", 'warning');
+                Yii::app()->setFlashMessage("An error happened during update : <div>" . $e->getMessage() . "</div>", 'warning');
                 return;
             }
             $this->set("dbVersion", 2);
@@ -246,7 +246,7 @@ class cpVille extends PluginBase
         if (!$this->api->tableExists($this, 'insee_cp')) {
             if (!is_readable(dirname(__FILE__) . "/" . $this->csvFileName)) {
                 $this->getEvent()->set('success', false);
-                $this->getEvent()->set('message', 'Can not read file :' . dirname(__FILE__) . "/" . $this->csvFileName . '.');
+                $this->getEvent()->set('message', 'Cannot read file :' . dirname(__FILE__) . "/" . $this->csvFileName . '.');
                 return false;
             }
             $tableName = $this->tableName('insee_cp');
@@ -282,7 +282,7 @@ class cpVille extends PluginBase
         if ($this->tableUpdated) {
             Yii::app()->db->schema->getTables();
             Yii::app()->db->schema->refresh();
-            Yii::app()->setFlashMessage(gT("Table for plugin was created and updated"));
+            Yii::app()->setFlashMessage(gT("The plugin's table was created and updated"));
         }
     }
 
@@ -355,7 +355,7 @@ class cpVille extends PluginBase
                     'showCp' => intval($this->get('showCp', null, null, $this->settings['showCp']['default'])),
                     'showInsee' => intval($this->get('showInsee', null, null, $this->settings['showInsee']['default'])),
                     'otherColumns' => $this->getExtraOtherColumns(),
-                    'placeholder' => $this->_translate("Enter some character or first caracter of your zipcode."),
+                    'placeholder' => $this->_translate("Enter some characters or the start of your zipcode."),
                 );
 
                 $sTipCopyright = 'Data : <a href= "https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/" target= "_blank">Base officielle des codes postaux</a> ©La Poste, <a href= "http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm" target= "_blank">Insee, Recensements de la population</a> ©Insee';
@@ -623,7 +623,7 @@ class cpVille extends PluginBase
     }
     
     /**
-     * get the default coolumn to be returned
+     * get the default column to be returned
      */
     private function getExtraOtherColumns() {
         $extraColumns = $this->get('otherColumns', null, null, "cp\nnomsimple\nregion\ndepartement\npopulation\npopulationint\n");

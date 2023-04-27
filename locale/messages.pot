@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: assets-legacy\n"
 
 #: cpVille.php:318
-msgid "Enter some character or first caracter of your zipcode."
+msgid "Enter some characters or the start of your zipcode."
 msgstr ""
 
 #: cpVille.php:525
