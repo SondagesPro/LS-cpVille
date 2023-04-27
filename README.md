@@ -1,4 +1,5 @@
-# Cope postal - Ville
+# Code postal - Ville
+
 Allows the use of multi text questions to get a Postal code, town name and Insee code. Users have an autocomplete helper to search for the town (only French town at the moment).
 
 ## Installation
@@ -38,9 +39,9 @@ For users, some help is provided
 
 ## Home page & Copyright
 
-### Code
+### Copyright
 - HomePage <http://extensions.sondages.pro/>
-- Copyright © 2015-2018 Denis Chenu <http://sondages.pro>
+- Copyright © 2015-2023 Denis Chenu <http://sondages.pro> and [contributors](https://gitlab.com/SondagesPro/QuestionSettingsType/cpVille/-/graphs/master?ref_type=heads)
 - Copyright © 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
 - Copyright © 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
 - Copyright © 2016 Comité Régional du Tourisme de Bretagne <https://www.tourismebretagne.com/>
@@ -58,3 +59,10 @@ For users, some help is provided
 - Adaptation ( Add population to "Base officielle des codes postaux", replace ST and STE)
   - Copyright © 2015 Denis Chenu <http://sondages.pro>
   - Licence : ODbL <http://opendatacommons.org/licenses/odbl/>
+
+### Support and donation
+- Issue and merge request on [gitlab](https://gitlab.com/SondagesPro/QuestionSettingsType/cpVille/) please
+- [Support](https://support.sondages.pro)
+- [Donate](https://support.sondages.pro/open.php?topicId=12)
+- [Donate on Liberapay](https://liberapay.com/SondagesPro/)
+- [Donate on Open Collective](https://opencollective.com/sondagespro)
