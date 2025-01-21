@@ -2,6 +2,9 @@
 
 Allows the use of multi text questions to get a Postal code, town name and Insee code. Users have an autocomplete helper to search for the town (only French town at the moment).
 
+**For future versions of LimeSurvey: it is preferable to upgrade to 
+[SelectQuestionByResponses](https://gitlab.com/SondagesPro/QuestionSettingsType/SelectQuestionByResponses), which will be updated more quickly, and allows data to be managed via the LimeSurvey interface.** 
+
 ## Installation
 
 ### Via GIT
