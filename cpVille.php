@@ -5,13 +5,13 @@
  * Allow user to enter part of postal code or town and get the insee code in survey
  * Permet aux répondants de saisir une partie du code postal ou de la ville en choix, et récupérer le code postal
  * @author Denis Chenu <denis@sondages.pro>
- * @copyright 2015-2023 Denis Chenu <http://sondages.pro>
+ * @copyright 2015-2026 Denis Chenu <http://sondages.pro>
  * @copyright 2023 Contributors <https://gitlab.com/SondagesPro/QuestionSettingsType/cpVille/-/graphs/master?ref_type=heads>
  * @copyright 2015 Observatoire Régional de la Santé (ORS) - Nord-Pas-de-Calais <http://www.orsnpdc.org/>
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @copyright 2016 Comité Régional du Tourisme de Bretagne <https://www.tourismebretagne.com/>
  * @license GPL v3
- * @version 4.2.1
+ * @version 4.3.1
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -164,10 +164,10 @@ class cpVille extends PluginBase
                         if (in_array($sTableName, Yii::app()->db->schema->getTableNames())) {
                             App()->getDb()->createCommand()->dropTable($sTableName);
                             Yii::app()->setFlashMessage(gT("The plugin's table was deleted in order to be updated"));
-                            $this->_insertInseeCp();
+                            $this->cpVilleInsertInseeCp();
                         }
                     }
-                    $this->_checkAndUpdateTable();
+                    $this->cpVilleCheckAndUpdateTable();
                 }
             }
 
@@ -190,10 +190,10 @@ class cpVille extends PluginBase
             throw new CHttpException(403);
         }
         $oEvent = $this->getEvent();
-        $this->getEvent()->set('success', $this->_insertInseeCp());
+        $this->getEvent()->set('success', $this->cpVilleInsertInseeCp());
     }
 
-    private function _checkAndUpdateTable()
+    private function cpVilleCheckAndUpdateTable()
     {
         $pluginId = $this->getId();
 
@@ -243,7 +243,7 @@ class cpVille extends PluginBase
      * create and insert database
      * @return boolean : success
      */
-    private function _insertInseeCp()
+    private function cpVilleInsertInseeCp()
     {
         if (!$this->api->tableExists($this, 'insee_cp')) {
             if (!is_readable(dirname(__FILE__) . "/" . $this->csvFileName)) {
@@ -271,7 +271,7 @@ class cpVille extends PluginBase
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_nomsimple_departement', $tableName, 'nomsimple,departement');
             Yii::app()->getDb()->createCommand()->createIndex('inseecp_cp_nomsimple', $tableName, 'cp,nomsimple');
             /* TODO : add index */
-            if (!$this->_addDataToTable()) {
+            if (!$this->cpVilleAddDataToTable()) {
                 App()->getDb()->createCommand()->dropTable($tableName);
                 return false;
             }
@@ -292,12 +292,12 @@ class cpVille extends PluginBase
      * Add data to table
      * @return boolean : success
      */
-    private function _addDataToTable()
+    private function cpVilleAddDataToTable()
     {
         $fHandle = fopen(dirname(__FILE__) . "/" . $this->csvFileName, 'r');
         $lineNum = 0;
         $tableName = $this->tableName('insee_cp');
-        while (($aData = fgetcsv($fHandle)) !== false) {
+        while (($aData = fgetcsv($fHandle, null, ',', "\"", "\\")) !== false) {
             $lineNum++;
             if ($lineNum > 1) { // We don't do the header
                 if (strlen($aData[0]) <= 5) {
@@ -357,7 +357,7 @@ class cpVille extends PluginBase
                     'showCp' => intval($this->get('showCp', null, null, $this->settings['showCp']['default'])),
                     'showInsee' => intval($this->get('showInsee', null, null, $this->settings['showInsee']['default'])),
                     'otherColumns' => $this->getExtraOtherColumns(),
-                    'placeholder' => $this->_translate("Enter some characters or the start of your zipcode."),
+                    'placeholder' => $this->cpVilleTranslate("Enter some characters or the start of your zipcode."),
                 );
 
                 $sTipCopyright = 'Data : <a href= "https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/" target= "_blank">Base officielle des codes postaux</a> ©La Poste, <a href= "http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm" target= "_blank">Insee, Recensements de la population</a> ©Insee';
@@ -557,7 +557,7 @@ class cpVille extends PluginBase
             }
             if (!count($aReturnArray)) {
                 $aReturnArray[] = array(
-                    'label' => $this->_translate("No city with this name, please check it."),
+                    'label' => $this->cpVilleTranslate("No city with this name, please check it."),
                     'value' => "",
                     $this->get('answerCp', null, null, $this->settings['answerCp']['default']) => "",
                     $this->get('answerInsee', null, null, $this->settings['answerInsee']['default']) => "",
@@ -596,7 +596,7 @@ class cpVille extends PluginBase
         return $string;
     }
 
-    private function _translate($sToTranslate, $sEscapeMode = 'unescaped', $sLanguage = null)
+    private function cpVilleTranslate($sToTranslate, $sEscapeMode = 'unescaped', $sLanguage = null)
     {
         if (method_exists($this, "gT")) {
             return $this->gT($sToTranslate, $sEscapeMode, $sLanguage);
