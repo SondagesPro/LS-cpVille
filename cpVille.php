@@ -452,7 +452,7 @@ class cpVille extends PluginBase
                 // Unknow DB
                 break;
         }
-        $iLimit = (int)$this->get('limitliste');
+        $iLimit = (int)$this->get('limitlist');
         $iLimit = ($iLimit > 0) ? $iLimit : 10;
         $sOrderBy = $this->get('orderby');
         switch ($sOrderBy) {
