@@ -358,7 +358,7 @@ class cpVille extends PluginBase
                     'showInsee' => intval($this->get('showInsee', null, null, $this->settings['showInsee']['default'])),
                     'otherColumns' => $this->getExtraOtherColumns(),
                     'placeholder' => $this->cpVilleTranslate("Enter some characters or the start of your zipcode."),
-                    'fields' => (object) $this->getSubQuestionFields($oSaisieSubQuestion),
+                    'fields' => (object) $this->getSubQuestionFields($oEvent->get('surveyId'), $oEvent->get('gid'), $iQid),
                 );
 
                 $sTipCopyright = 'Data : <a href= "https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/" target= "_blank">Base officielle des codes postaux</a> ©La Poste, <a href= "http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm" target= "_blank">Insee, Recensements de la population</a> ©Insee';
@@ -629,20 +629,22 @@ class cpVille extends PluginBase
      * Get the name of the input of each sub question of a question, by sub question code
      * Since LimeSurvey 7 the name is Q{qid}_S{sub question id}: The javascript can not find the input by the code
      * Before LimeSurvey 7 the name is {sid}X{gid}X{qid}{sub question code}
-     * @param Question $oSubQuestion One of the sub questions of the question
+     * @param integer $surveyId The survey id of the question
+     * @param integer $gid The group id of the question: The group id of a sub question can be outdated
+     * @param integer $qid The question id
      * @return string[] Name of the input by sub question code
      */
-    private function getSubQuestionFields($oSubQuestion)
+    private function getSubQuestionFields($surveyId, $gid, $qid)
     {
         $isCodeInName = version_compare(App()->getConfig('versionnumber'), 7, "<");
         $fields = array();
-        $subQuestions = Question::model()->findAll('parent_qid=:qid', array(':qid' => $oSubQuestion->parent_qid));
+        $subQuestions = Question::model()->findAll('parent_qid=:qid', array(':qid' => $qid));
         foreach ($subQuestions as $subQuestion) {
             if ($isCodeInName) {
-                $fields[$subQuestion->title] = "{$subQuestion->sid}X{$subQuestion->gid}X{$subQuestion->parent_qid}{$subQuestion->title}";
+                $fields[$subQuestion->title] = "{$surveyId}X{$gid}X{$qid}{$subQuestion->title}";
                 continue;
             }
-            $fields[$subQuestion->title] = "Q{$subQuestion->parent_qid}_S{$subQuestion->qid}";
+            $fields[$subQuestion->title] = "Q{$qid}_S{$subQuestion->qid}";
         }
         return $fields;
     }
