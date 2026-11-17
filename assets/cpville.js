@@ -1,7 +1,20 @@
 
 function autoCpVille(qId,options){
-    
-  var answerLibels=$("#question"+qId+" input[name*='X"+qId+options.answerLibel+"']");
+  /* Name of the input by sub question code : since LimeSurvey 7 the name of the input does not contain the code */
+  var fields=options.fields || {};
+  /* Get the line of a sub question by the code, empty if there is no such sub question */
+  function getLine(code){
+    if(!Object.prototype.hasOwnProperty.call(fields,code)){
+      return $();
+    }
+    return $(document.getElementById("javatbd"+fields[code]));
+  }
+  var answerLibels=$();
+  $.each(fields, function( code ) {
+    if(code.indexOf(options.answerLibel)===0){
+      answerLibels=answerLibels.add(getLine(code).find("input[type=text]").data("cpvillecode",code));
+    }
+  });
   if(answerLibels.length>=1)
   {
     $(answerLibels).keypress(function(e) {
@@ -10,46 +23,38 @@ function autoCpVille(qId,options){
             e.preventDefault();
           }
     });
-    var cache = {};
-    var baseLibel='X'+qId+options.answerLibel;
-    var baseLibelLength=baseLibel.length;
     $(answerLibels).each(function(){
       $(this).attr('placeholder',options.placeholder);
       // Find final part
-      var thisid=$(this).attr("id");
-      var n=thisid.indexOf('X'+qId+options.answerLibel);
-      var endLibel=$(this).attr("id").substring($(this).attr("id").indexOf(baseLibel)+baseLibelLength);
+      var endLibel=$(this).data("cpvillecode").substring(options.answerLibel.length);
       // Set the options for each lines
       var optionLines=[];
       var optionShow=[];
 
       if(options.answerCp){
-        optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+options.answerCp+endLibel+"']");
+        optionLines.push(getLine(options.answerCp+endLibel));
         optionShow.push(options.showCp);
       }
       if(options.answerInsee){
-        optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+options.answerInsee+endLibel+"']");
+        optionLines.push(getLine(options.answerInsee+endLibel));
         optionShow.push(options.showInsee);
       }
       if(options.answerNom){
-        optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+options.answerNom+endLibel+"']");
+        optionLines.push(getLine(options.answerNom+endLibel));
         optionShow.push(0);
       }
       if(options.otherColumns){
         $.each(options.otherColumns, function( index, value ) {
-            optionLines.push("#question"+qId+" .answer-item[id$='X"+qId+value+endLibel+"']");
+            optionLines.push(getLine(value+endLibel));
             optionShow.push(false);
         });
       }
-      console.warn([
-        optionLines,
-        optionShow
-      ]);
       $.each(optionLines, function( index, value ) {
         if(!optionShow[index])
         {
           $(value).hide();
-          $(value).addClass("hidden");
+          /* hidden : bootstrap 3, d-none : bootstrap 5 (LimeSurvey 6 and later) */
+          $(value).addClass("hidden d-none");
         }
         $(value).find("input[type=text]").prop("readonly",true).addClass("readonly");
       });
@@ -77,7 +82,7 @@ function autoCpVille(qId,options){
             onSelect : function(suggestion) {
                 if(suggestion.data) {
                     $.each(suggestion.data, function(key, value) {
-                        $("input[type=text][name$='X"+qId+key+endLibel+"']").val(value).trigger('keyup');
+                        getLine(key+endLibel).find("input[type=text]").val(value).trigger('keyup');
                     });
                 }
                 if(suggestion.data.value == "") {
@@ -85,10 +90,6 @@ function autoCpVille(qId,options){
                 }
             }
       });
-    });
-  }else{
-    $(optionLines.join(",")).each(function( index ) {
-      $(this).show();
     });
   }
 }

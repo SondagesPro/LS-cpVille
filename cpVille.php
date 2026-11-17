@@ -11,7 +11,7 @@
  * @copyright 2016 Formations logiciels libres - 2i2l = 42 <http://2i2l.fr/>
  * @copyright 2016 Comité Régional du Tourisme de Bretagne <https://www.tourismebretagne.com/>
  * @license GPL v3
- * @version 4.3.1
+ * @version 4.4.0
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -358,6 +358,7 @@ class cpVille extends PluginBase
                     'showInsee' => intval($this->get('showInsee', null, null, $this->settings['showInsee']['default'])),
                     'otherColumns' => $this->getExtraOtherColumns(),
                     'placeholder' => $this->cpVilleTranslate("Enter some characters or the start of your zipcode."),
+                    'fields' => (object) $this->getSubQuestionFields($oEvent->get('surveyId'), $oEvent->get('gid'), $iQid),
                 );
 
                 $sTipCopyright = 'Data : <a href= "https://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/" target= "_blank">Base officielle des codes postaux</a> ©La Poste, <a href= "http://www.insee.fr/fr/bases-de-donnees/default.asp?page=recensements.htm" target= "_blank">Insee, Recensements de la population</a> ©Insee';
@@ -452,7 +453,7 @@ class cpVille extends PluginBase
                 // Unknow DB
                 break;
         }
-        $iLimit = (int)$this->get('limitliste');
+        $iLimit = (int)$this->get('limitlist');
         $iLimit = ($iLimit > 0) ? $iLimit : 10;
         $sOrderBy = $this->get('orderby');
         switch ($sOrderBy) {
@@ -624,6 +625,30 @@ class cpVille extends PluginBase
         ));
     }
     
+    /**
+     * Get the name of the input of each sub question of a question, by sub question code
+     * Since LimeSurvey 7 the name is Q{qid}_S{sub question id}: The javascript can not find the input by the code
+     * Before LimeSurvey 7 the name is {sid}X{gid}X{qid}{sub question code}
+     * @param integer $surveyId The survey id of the question
+     * @param integer $gid The group id of the question: The group id of a sub question can be outdated
+     * @param integer $qid The question id
+     * @return string[] Name of the input by sub question code
+     */
+    private function getSubQuestionFields($surveyId, $gid, $qid)
+    {
+        $isCodeInName = version_compare(App()->getConfig('versionnumber'), 7, "<");
+        $fields = array();
+        $subQuestions = Question::model()->findAll('parent_qid=:qid', array(':qid' => $qid));
+        foreach ($subQuestions as $subQuestion) {
+            if ($isCodeInName) {
+                $fields[$subQuestion->title] = "{$surveyId}X{$gid}X{$qid}{$subQuestion->title}";
+                continue;
+            }
+            $fields[$subQuestion->title] = "Q{$qid}_S{$subQuestion->qid}";
+        }
+        return $fields;
+    }
+
     /**
      * get the default column to be returned
      */
